@@ -12,11 +12,18 @@
     height: 100%;
 
 
-    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 85%, rgba(0,0,0,0));
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
+    /* Máscara horizontal */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent),
+                      linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
 
-    mask-image: linear-gradient(to right, rgba(0,0,0,1) 85%, rgba(0,0,0,0));
-    mask-repeat: no-repeat;
-    mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-composite: destination-in;
+
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent),
+              linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  mask-composite: intersect; /* padrão do Firefox */
 }      
