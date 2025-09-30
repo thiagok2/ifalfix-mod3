@@ -13,8 +13,8 @@ function CarroselNum({ listaNumerada }) {
   };
 
   // clique unico
-  const scrollLeft = () => scrollByAmount(-300);
-  const scrollRight = () => scrollByAmount(300);
+  const scrollLeft = () => scrollByAmount(-600);
+  const scrollRight = () => scrollByAmount(600);
 
   // clicar para correr rápido
   const startScroll = (direction) => {

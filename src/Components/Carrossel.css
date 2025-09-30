@@ -20,7 +20,7 @@
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
-     padding: 1rem 0;
+    padding: 3.5rem 0;
     scroll-behavior: smooth;
     overflow-clip-margin: content-box;
     cursor: grab;

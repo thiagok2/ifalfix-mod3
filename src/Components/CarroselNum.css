@@ -37,13 +37,13 @@
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.5);
   border: none;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 2rem;
   cursor: pointer;
   padding: 10px;
   border-radius: 50%;
   z-index: 5;
-  transition: background 0.3s;
+  transition: background 0.9s;
 }
 
 .btn-scroll:hover {
@@ -95,6 +95,7 @@
     -webkit-text-stroke-width: 4px;
     -webkit-text-stroke-color: #4d4d4d;
     margin-right: -39px;
+    margin-bottom: 50px;
 }
 
 .link-num {
