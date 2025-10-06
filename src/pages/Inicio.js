@@ -1,26 +1,40 @@
 import { useState, createElement as h } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom"; // <-- adicionar useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import "./Inicio.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // <-- criar função de navegação
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     console.log("Dados de Login:", { username, password });
-
-
-    // Se login for bem-sucedido, redireciona:
-    navigate("/"); // <-- redirecionamento programático
+    navigate("/");
   };
+
 
   return h(
     "div",
     { className: "container" },
+    
+    //  IMAGEM ADICIONADA AQUI, DENTRO DO RETURN E USANDO A SINTAXE 'h()'
+    h("img", {
+      src: "https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456",
+      alt: "Logotipo-NETFLIX",
+      className: "logo", // 
+    }),
+
+    /*  Imagem de fundo adicionada aqui 
+    h("img", {
+      src: "https://assets.nflxext.com/ffe/siteui/vlv3/d482944d-eab4-4a64-89c9-a07a508a6e42/web/BR-pt-20250929-TRIFECTA-perspective_f86e1617-a2fa-4e69-9251-41c164062b2e_large.jpg",
+      alt: "Imagem-de-Fundo",
+      className: "background-image", // Classe CSS para a imagem de fundo
+    }),
+
+    */
+   
     h(
       "form",
       { onSubmit: handleSubmit },
@@ -63,7 +77,6 @@ const Login = () => {
         )
       ),
 
-      // Botão de submit normal
       h("button", { type: "submit" }, "Entrar"),
 
       h(
