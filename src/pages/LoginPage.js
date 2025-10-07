@@ -11,7 +11,7 @@ function LoginPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Dados de Login:", { username, password });
-    navigate("/");
+    navigate("/profiles");
   };
 
   return (

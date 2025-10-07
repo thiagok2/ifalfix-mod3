@@ -10,8 +10,9 @@ import RegistroPage from "./pages/RegistroPage";
 
 function MainRoutes() {
     return (
-        <Routes> 
+        <Routes>
             <Route path="/" element={<ProfilesPage />} />
+            <Route path="/profiles" element={<ProfilesPage />} />
             <Route path="/perfil" element={<PerfilPage />} />
             
             <Route path="/home" element={<HomePage />} />

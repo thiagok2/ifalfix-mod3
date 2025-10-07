@@ -19,7 +19,7 @@ function NavBar() {
         <div className="nav-bar-pai">
 
             <div className="nav-bar-link">
-                <Link to="/"  className="link">
+                <Link to="/profiles"  className="link">
                     <img src={logo} className="imagem"></img>
                 </Link>                
 
