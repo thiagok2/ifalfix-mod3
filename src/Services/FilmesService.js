@@ -21,6 +21,10 @@ class FilmesService {
         return this.todosFilmes.filter(f => f.tipo === tipo);
     }
 
+    getPorGenero(genero) {
+        return this.todosFilmes.filter(f => f.genero.toLowerCase().includes(genero.toLowerCase()));
+    }
+
     getFilmes() {
          return this.todosFilmes.filter(f => f.tipo === "f");
     }

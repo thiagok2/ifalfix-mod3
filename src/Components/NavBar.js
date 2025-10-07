@@ -19,7 +19,7 @@ function NavBar() {
         <div className="nav-bar-pai">
 
             <div className="nav-bar-link">
-                <Link to="/"  className="link">
+                <Link to="/profiles"  className="link">
                     <img src={logo} className="imagem"></img>
                 </Link>                
 
@@ -40,6 +40,10 @@ function NavBar() {
                 </Link>
                 <Link to="/catalogo/minhalista" className="link">
                     <span >Minha lista</span>
+                </Link>
+
+                <Link to='/trends' className="link">
+                    <span >Tendências</span>
                 </Link>
             </div>
 

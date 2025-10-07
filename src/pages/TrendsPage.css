@@ -1,0 +1,7 @@
+.container-filmeComentado{
+    display : flex;
+    flex-direction: row;
+}
+.comentarios-box{
+    align-self: center;
+}
