@@ -1,9 +1,9 @@
-import { useState, createElement as h } from "react";
+import "./Registro.css";
+import { useState } from "react";
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "./Registro.css";
 
-const Register = () => {
+function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,80 +18,71 @@ const Register = () => {
     console.log("Dados de Registro:", { name, email, password });
   };
 
-  return h(
-    "div",
-    { className: "register-container" },
-    h(
-      "form",
-      { onSubmit: handleSubmit },
-      h("h1", null, "Crie sua conta"),
+  return (
+    <div className="register-container">
+      <form onSubmit={handleSubmit}>
+        <h1>Crie sua conta</h1>
 
-      h(
-        "div",
-        { className: "input-field" },
-        h("input", {
-          type: "text",
-          placeholder: "Nome completo",
-          required: true,
-          value: name,
-          onChange: (e) => setName(e.target.value),
-        }),
-        h(FaUser, { className: "icon" })
-      ),
+        {/* Campo Nome completo */}
+        <div className="input-field">
+          <input
+            type="text"
+            placeholder="Nome completo"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <FaUser className="icon" />
+        </div>
 
-      h(
-        "div",
-        { className: "input-field" },
-        h("input", {
-          type: "email",
-          placeholder: "E-mail",
-          required: true,
-          value: email,
-          onChange: (e) => setEmail(e.target.value),
-        }),
-        h(FaEnvelope, { className: "icon" })
-      ),
+        {/* Campo E-mail */}
+        <div className="input-field">
+          <input
+            type="email"
+            placeholder="E-mail"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <FaEnvelope className="icon" />
+        </div>
 
-      h(
-        "div",
-        { className: "input-field" },
-        h("input", {
-          type: "password",
-          placeholder: "Senha",
-          required: true,
-          value: password,
-          onChange: (e) => setPassword(e.target.value),
-        }),
-        h(FaLock, { className: "icon" })
-      ),
+        {/* Campo Senha */}
+        <div className="input-field">
+          <input
+            type="password"
+            placeholder="Senha"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <FaLock className="icon" />
+        </div>
 
-      h(
-        "div",
-        { className: "input-field" },
-        h("input", {
-          type: "password",
-          placeholder: "Confirme a senha",
-          required: true,
-          value: confirmPassword,
-          onChange: (e) => setConfirmPassword(e.target.value),
-        }),
-        h(FaLock, { className: "icon" })
-      ),
+        {/* Campo Confirmar Senha */}
+        <div className="input-field">
+          <input
+            type="password"
+            placeholder="Confirme a senha"
+            required
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <FaLock className="icon" />
+        </div>
 
-      h("button", { type: "submit" }, "Registrar"),
+        {/* Botão Registrar */}
+        <button type="submit">Registrar</button>
 
-      h(
-        "div",
-        { className: "login-link" },
-        h(
-          "p",
-          null,
-          "Já tem uma conta? ",
-          h(Link, { to: "/Inicio" }, "Login")
-        )
-      )
-    )
+        {/* Link para Login */}
+        <div className="login-link">
+          <p>
+            Já tem uma conta? <Link to="/Inicio">Login</Link>
+          </p>
+        </div>
+      </form>
+    </div>
   );
-};
+}
 
 export default Register;
