@@ -1,19 +1,26 @@
 import './CatalogoPage.css'
 
-import NavBar from '../Components/NavBar';
-import { Link, useParams } from 'react-router-dom'
-import filmesService from '../Services/FilmesService';
-import { FaComments } from "react-icons/fa6";
-import { FaStar } from "react-icons/fa6";
-import CardFilmeExtendido from '../Components/CardFilmeExtendido';
+import React, { useState, useEffect } from "react";
 
+import NavBar from '../Components/NavBar';
+import { useParams } from 'react-router-dom'
+import CardFilmeExtendido from '../Components/CardFilmeExtendido';
+import { carregarDadosCatalogo } from "../Configuracoes/Catalogo";
+import "./CatalogoPage.css";
 
 function CatalogoPage() {
+  const { tipo } = useParams();
+  const [itemList, setItemList] = useState([]);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState(null);
 
-    const { tipo } = useParams();
-    let paramTipo = tipo === "series" ? "s" : "f";
+  useEffect(() => {
+    carregarDadosCatalogo(tipo, setItemList, setCarregando, setErro);
+  }, [tipo]);
 
-    const filmeList = filmesService.getFilmesPorTipo(paramTipo);
+  if (carregando) {
+    return <div >Carregando...</div>;
+  }
 
     return (
         <div className='container'>
@@ -23,7 +30,7 @@ function CatalogoPage() {
 
             <div className='containers-catalogo'>
                 {
-                    filmeList.map((filme, idx) => 
+                    itemList.map((filme, idx) => 
                         <CardFilmeExtendido key={idx} filme={filme} />
                     )
                 }

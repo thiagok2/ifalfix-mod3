@@ -2,9 +2,11 @@ import { filmes, filmes2, filmesNum } from "./FilmesMock.js";
 
 class FilmesService {
 
+
     constructor() {
         this.todosFilmes = [...filmes, ...filmes2, ...filmesNum];
     }
+
 
     getById(id) {
         return this.todosFilmes.find(filme => filme.id === id) || null;

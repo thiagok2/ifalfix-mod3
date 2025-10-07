@@ -158,3 +158,27 @@
   object-fit: contain;
   display: block;
 }
+/* Arquivo: src/Components/FilmeDestaque.css */
+
+.filme-destaque {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: #FFF;
+}
+
+.destaque-vertical {
+ 
+  height: inherit;
+  background: linear-gradient(to top, #111 10%, transparent 50%);
+}
+
+.destaque-horizontal {
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to right, #111 10%, transparent 40%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 30px;
+}
