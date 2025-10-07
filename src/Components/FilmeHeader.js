@@ -3,6 +3,7 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import { FaPlay } from "react-icons/fa";
 import { Link } from 'react-router-dom'
 
+
 function FilmeHeader({ filme }) {
     return (
         <div className='PaiHeader'>

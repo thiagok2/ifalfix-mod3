@@ -1,73 +1,46 @@
-import './CatalogoPage.css'
+// Arquivo: Pages/CatalogoPage.js
 
-import NavBar from '../Components/NavBar';
-import { Link, useParams } from 'react-router-dom'
-import filmesService from '../Services/FilmesService';
-import { FaComments } from "react-icons/fa6";
-import { FaStar } from "react-icons/fa6";
-
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import NavBar from "../Components/NavBar";
+import CardFilme from "../Components/CardFilmesApi"; // <-- Usa o nosso novo CardFilme
+import { carregarDadosCatalogo } from "../Configuracoes/Catalogo";
+import "./CatalogoPage.css";
 
 function CatalogoPage() {
+  const { tipo } = useParams();
+  const [itemList, setItemList] = useState([]);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState(null);
 
-    const { tipo } = useParams();
-    let paramTipo = tipo === "series" ? "s" : "f";
+  useEffect(() => {
+    carregarDadosCatalogo(tipo, setItemList, setCarregando, setErro);
+  }, [tipo]);
 
-    const filmeList = filmesService.getFilmesPorTipo(paramTipo);
+  if (carregando) {
+    return <div >Carregando...</div>;
+  }
 
-    const handleAddClicados = (filme) => {
-        filmesService.addFilmeClicado(filme);
+  if (erro) {
+    return <div >Erro: {erro}</div>;
+  }
 
-    }
-
-    return (
-        <div className='container'>
-            <div className='navbar'>
-                <NavBar />
-            </div>
-
-            <div className='containers-catalogo'>
-                {
-                    filmeList.map((filme, idx) => 
-                        <Link key={idx} className='container-filme' onClick={() => handleAddClicados(filme)}>
-                            <div className='header-filme'>
-                                <span className='filme-titulo'>{filme.titulo}</span>
-                                <span className="filme-comentarios"> <FaComments /> {filme.numero_comentarios}</span>
-                            </div>
-
-                            <div className='img-container'>
-                                <Link className='card-filmes' to={`/filme/${filme.id}`} >
-                                    <img src={filme.fotoThumbnail} className='foto' alt={filme.titulo} />
-                                </Link>
-                            </div>
-
-                            <div className='filme-subtitulo'>
-                                <div className='subitem-header'>{filme.nota_avaliacao} <FaStar className='star'/></div>
-
-
-                                <div className='subitem-header faixa'>{filme.faixa_etaria}</div>
-                            </div>
-                            {filme.temporadas &&
-                                <div className='item-opcional'>{filme.temporadas}</div>
-                            }
-                            <div className='introducao'>
-                                {filme.sinopse}
-                            </div>
-                            <div className='footer-filme'>
-                                <div className='footer-item'> {filme.elenco}</div>
-                                <div className='footer-item'> {filme.genero}</div>
-                                <div className='footer-item'>Lançamento: {filme.ano_lancamento}</div>
-                                {filme.indicacoes_premios?.length > 0 &&
-                                <div className='footer-item'>Indicações: {filme.indicacoes_premios}</div>
-                                }
-                            </div>
-                        </Link>
-                    )
-                }
-
-            </div>
-
-        </div>
-    )
+  return (
+    <div className="container">
+      <div className="navbar">
+        <NavBar />
+      </div>
+      <div className="containers-catalogo">
+        {itemList.length > 0 ? (
+          itemList.map((filme) => (
+            <CardFilme key={filme.id} filme={filme} />
+          ))
+        ) : (
+          <p style={{ color: 'white' }}>Nenhum item encontrado.</p>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default CatalogoPage;

@@ -1,0 +1,84 @@
+// Arquivo: src/Pages/HomePage.js
+
+import React, { useState, useEffect } from 'react';
+import FilmesServiceApi from '../Services/FilmesServiceApi'; // Ajuste o caminho se necessário
+import Carrossel from '../Components/Carrossel';       // Ajuste o caminho se necessário
+import NavBar from '../Components/NavBar';           // Ajuste o caminho se necessário
+import FilmeDestaque from "../Components/FilmeDestaque"; 
+
+function HomePage() {
+  // Estados para guardar cada lista de itens da API
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [popularSeries, setPopularSeries] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [carregando, setCarregando] = useState(true);
+
+  // useEffect para buscar todos os dados de uma vez quando a página carregar
+  useEffect(() => {
+    const carregarTodosOsDados = async () => {
+      try {
+        // Promise.all executa todas as chamadas de API em paralelo para mais velocidade
+        const [movies, series, topRated] = await Promise.all([
+          FilmesServiceApi.getPopularMovies(),
+          FilmesServiceApi.getPopularSeries(),
+          FilmesServiceApi.getTopRatedMovies(),
+        ]);
+
+        // Atualiza os estados com os dados recebidos
+        setPopularMovies(movies);
+        setPopularSeries(series);
+        setTopRatedMovies(topRated);
+
+      } catch (error) {
+        console.error("Erro ao carregar dados para a página principal:", error);
+      } finally {
+        // Ao final, para o carregamento
+        setCarregando(false);
+      }
+    };
+
+    carregarTodosOsDados();
+  }, []); // O array vazio [] garante que isso execute apenas uma vez
+
+
+  // Mostra uma mensagem de "Carregando..." enquanto as informações não chegam
+  if (carregando) {
+    return <div style={{  marginTop: "400px", color: "white", display: "flex",
+       justifyContent: "center", alignItems: "center" , fontSize: "90px" }}>Carregando...</div>;
+       <div className="tela" style={{ backgroundImage: `url(${filmeTopo.fotoThumbnail})` }}> 
+  }
+    const aleatorio = FilmesServiceApi.getRandomFilme();
+  // Renderiza a página com um carrossel para cada lista
+  return (
+    <div className="home-page">
+      <NavBar />
+      <FilmeDestaque filme={aleatorio}/> 
+      
+      {/* Carrossel de Filmes Populares */}
+      {popularMovies.length > 0 && (
+        <Carrossel 
+          descricao="Filmes Populares" 
+          listadeFilmes={popularMovies}
+        />
+      )}
+
+      {/* Carrossel de Séries Populares */}
+      {popularSeries.length > 0 && (
+        <Carrossel 
+          descricao="Séries Populares" 
+          listadeFilmes={popularSeries}
+        />
+      )}
+
+      {/* Carrossel de Filmes Mais Votados */}
+      {topRatedMovies.length > 0 && (
+        <Carrossel 
+          descricao="Filmes Mais Votados" 
+          listadeFilmes={topRatedMovies}
+        />
+      )}
+    </div>
+  );
+}
+
+export default HomePage;
