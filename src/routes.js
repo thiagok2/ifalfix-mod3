@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import Inicio from "./pages/Inicio"
 import Registro from "./pages/Registro"
+import TrendsPage from "./pages/TrendsPage";
 
 function MainRoutes() {
     return (
@@ -17,8 +18,9 @@ function MainRoutes() {
             <Route path="/home" element={<HomePage />} />
             <Route path="/filme" element={<FilmePage />} />
             <Route path="/filme/:id" element={<FilmePage />} /> 
-            <Route path="/filme/:id" element={<PerfilPage />} /> 
+            <Route path="/filme/:id" element={<PerfilPage />} />
 
+            <Route path="/trends"  element={<TrendsPage />} />
             
             <Route path="/catalogo" element={<CatalogoPage />} />
             <Route path="/catalogo/:tipo" element={<CatalogoPage />} />

@@ -3,7 +3,7 @@ import './ComentariosContainer.css'
 import { FaStar } from "react-icons/fa";
 import { useState, useEffect } from 'react';
 //coment
-function ComentariosContainer({ filme }) {
+function ComentariosContainer({ filme, showAvaliacao=true }) {
 
   const comentarios = ComentariosService.getByFilmeId(filme.id);
   const [tamanho, setTamanho] = useState(0)
@@ -17,15 +17,16 @@ function ComentariosContainer({ filme }) {
 
   return (
     <div className='all-container'>
-
-      <div className='info-avaliacao'>
-        <strong>Avaliação Média: </strong>
-        <strong className='avaliação-texto'>
-          <span> <FaStar className='estrela' /> {filme.nota_avaliacao}/10</span>
-        </strong>
-
-
-      </div>
+      {
+        showAvaliacao && 
+          <div className='info-avaliacao'>
+            <strong>Avaliação Média: </strong>
+            <strong className='avaliação-texto'>
+              <span> <FaStar className='estrela' /> {filme.nota_avaliacao}/10</span>
+            </strong>
+          </div>
+      }
+      
 
       <div className="comentario-container">
           <strong className='avalicao'>Avaliações</strong>

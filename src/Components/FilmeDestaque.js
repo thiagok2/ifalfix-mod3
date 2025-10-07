@@ -44,7 +44,7 @@ function FilmeDestaque({ filme }) {
 
                 <div className="info-pai">
                     <div className="option">
-                        <Link to="/filme" className="mais-informacoes" onClick={handleAddInteresse}>
+                        <Link to={`/filme/${filme.id}`} className="mais-informacoes" onClick={handleAddInteresse}>
                             <CiCircleInfo className="ciculo" />
                             <span className="mais"> Mais informações</span>
                         </Link>

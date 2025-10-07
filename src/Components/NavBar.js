@@ -41,6 +41,10 @@ function NavBar() {
                 <Link to="/catalogo/minhalista" className="link">
                     <span >Minha lista</span>
                 </Link>
+
+                <Link to='/trends' className="link">
+                    <span >Tendências</span>
+                </Link>
             </div>
 
             <div className="nav-bar-conta">
