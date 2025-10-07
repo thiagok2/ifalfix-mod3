@@ -5,9 +5,8 @@ import FilmePage from "./pages/FilmePage";
 import CatalogoPage from "./pages/CatalogoPage"; 
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import Inicio from "./pages/Inicio"
-import Registro from "./pages/Registro"
 import TrendsPage from "./pages/TrendsPage";
+import RegistroPage from "./pages/RegistroPage";
 
 function MainRoutes() {
     return (
@@ -27,9 +26,7 @@ function MainRoutes() {
             
             <Route path="/login" element={<LoginPage />} />
 
-
-            <Route path="/Inicio" element={<Inicio />} />
-            <Route path="/Registro" element={<Registro />} />
+            <Route path="/registro" element={<RegistroPage />} />
 
 
         </Routes>

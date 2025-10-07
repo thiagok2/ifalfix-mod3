@@ -1,9 +1,9 @@
-import "./Registro.css";
+import "./RegistroPage.css";
 import { useState } from "react";
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-function Register() {
+function RegistroPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +19,7 @@ function Register() {
   };
 
   return (
-    <div className="register-container">
+    <div className="registro-container">
       <form onSubmit={handleSubmit}>
         <h1>Crie sua conta</h1>
 
@@ -77,7 +77,7 @@ function Register() {
         {/* Link para Login */}
         <div className="login-link">
           <p>
-            Já tem uma conta? <Link to="/Inicio">Login</Link>
+            Já tem uma conta? <Link to="/login">Login</Link>
           </p>
         </div>
       </form>
@@ -85,4 +85,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default RegistroPage;
