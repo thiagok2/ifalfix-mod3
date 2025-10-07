@@ -1,0 +1,115 @@
+.container-filme {
+    display: flex;
+    flex-direction: column;
+    border: solid 2px rgb(223, 36, 36);
+    background-color: rgb(24, 23, 23);
+    border-radius: 10px;
+    width: 400px;
+    transition: transform 0.3s ease;
+     margin: 20px;
+     text-decoration: none;
+     opacity: 0.9;
+     color: aliceblue;
+
+}
+.header-filme {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+      margin: 10px;
+    
+}
+.filme-titulo{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 4px; 
+    left: 12px;
+    color: rgb(255, 255, 255);
+    margin-left: 22px;
+    font-size: 25px;
+    font-family: "RomieCustom", Georgia, serif;
+}
+
+.filme-comentarios{
+text-decoration: none;
+color: rgb(249, 252, 255);
+font-size: 20px;
+}
+.filme-subtitulo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+    margin-top: 5px;
+    align-items: center;
+
+}
+.item-opcional{
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+    font-size: 20px;
+    
+    justify-content: end;
+}
+.star{
+    color: rgb(235, 30, 30);
+}
+.faixa{
+    border-radius: 5px;
+    background-color: rgba(54, 51, 51, 0.824);
+    margin: 5px;
+}
+
+.img-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;  
+    width: 350px;
+    height: 200px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+
+.container-filme:hover{
+    opacity: 1;
+    cursor: pointer;
+    border-radius: 15px;
+    color: aliceblue;   
+}
+
+.foto {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.introducao {
+    padding: 15px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    line-height: 1.4;
+    flex-grow: 1;
+    font-family: 'Times New Roman', Times, serif;    
+}
+
+.footer-filme {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 10px 15px;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    border-top: 1px solid rgb(255, 30, 30); 
+}
+
+
