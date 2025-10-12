@@ -42,7 +42,7 @@
     justify-content: center;
 
     border: none;
-    background-color: rgba(150, 39, 39, 0.297);
+    background-color: rgb(255, 2, 2);
     font-size: 2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
