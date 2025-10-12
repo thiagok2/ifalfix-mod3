@@ -17,8 +17,6 @@ function CardFilmeExtendido({filme, key}) {
     return (
         <Link key={key} className='container-filme' onClick={() => handleAddClicado(filme)}>
             <div className='header-filme'>
-                <span className='filme-titulo'>{filme.titulo}</span>
-                <span className="filme-comentarios"> <FaComments /> {filme.numero_comentarios}</span>
             </div>
 
             <div className='img-container'>
