@@ -6,60 +6,55 @@
     font-style: normal;
     font-weight: 300;
     font-size: 20px;
-    margin-left: 45px;
     padding: 20px;
-    gap:10px;
+    gap: 50px;
     font-weight: 500;
     margin-bottom: -80px;
 }
-.carrosel{
-    display: flex;
-    flex-direction: row;
-    gap: 7px;
-    width: auto;
-    position: relative;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 3.5rem 0;
-    scroll-behavior: smooth;
-    overflow-clip-margin: content-box;
-    cursor: grab;
-    
-}
-.carrosel::-webkit-scrollbar {
-  height: 8px; /* Altura da barra de scroll */
+
+.carrosel-container {
+  position: relative;
+  width: 100%;
+  overflow: visible;
 }
 
-.carrosel::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Cor do "caminho" do scroll */
-  border-radius: 4px;
-}
-
-.carrosel::-webkit-scrollbar-thumb {
-  background: #888; /* Cor do "pegador" do scroll */
-  border-radius: 4px;
-}
-
-.carrosel::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Cor quando passa o mouse por cima */
-}
 .carrosel {
-  /* ... (as propriedades de antes: display, overflow-x, etc) ... */
-
-  /* Para Firefox */
-  scrollbar-width: none; 
-  /* Para Chrome, Safari e Edge */
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
 }
 
-.carrosel:active{
-    cursor: grabbing;
+.carrosel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
 
-.titulo-carrossel {
-  font-size: 26px;   
-  font-weight: bold;
-  margin: 1.5px;
+/* Botões */
+.carrossel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* centralização dos ícones (setas) */
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(255, 255, 255); /* cor da seta do ícone*/ 
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem; /*tamanho da seta do ícone*/ 
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.carrossel-button:hover {
+  background-color: rgba(69, 69, 69, 0.027);
+}
+
+.carrossel-button.prev {
+  left: 10px;
+}
+
+.carrossel-button.next {
+  right: 10px;
 }
