@@ -1,63 +1,9 @@
 
-
-    /* --- ESTILOS EXISTENTES (COM MODIFICAÇÕES) --- */
-
-    .containers-catalogo {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        background-color: #000000;
-        flex-wrap: nowrap;
-        overflow-x: scroll;
-        scroll-behavior: smooth;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
-
-    .containers-catalogo::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* --- NOVOS ESTILOS PARA O WRAPPER E BOTÕES --- */
-
-    .carousel-wrapper {
-        position: relative;
-        width: 100vw;
-    }
-
-    /* garanta que este bloco venha DEPOIS de qualquer outro estilo de botão */
-    .carousel .carousel-button,
-    .carousel-button.prev,
-    .carousel-button.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    
-    width: 100px;
-    padding: 0;
-    box-sizing: border-box;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-    background-color: rgb(255, 2, 2);
-    font-size: 2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    }
-
-    
-
-    .carousel-button.prev {
-        top: 260px;
-        left: 10x;
-        z-index: 10;
-    }
-
-    .carousel-button.next {
-        top: 260px;
-        right: 10px;
-        z-index: 10;
-    }
+.containers-catalogo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; 
+  margin-top: 100px;
+    background-color: #141414;
+}

@@ -1,6 +1,7 @@
 import './TrendsPage.css';
 import trendsService from '../Services/TrendsService';
 import NavBar from '../Components/NavBar';
+
 import CardFilmeExtendido from '../Components/CardFilmeExtendido';
 import ComentariosContainer from '../Components/ComentariosContainer';
 import CardFilme from '../Components/CardFilme';

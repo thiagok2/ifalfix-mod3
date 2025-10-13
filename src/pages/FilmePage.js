@@ -1,52 +1,68 @@
-import "./FilmePage.css";
-import Banner from "../Components/FilmeBanner";
-import Nome from "../Components/FilmeNome"
-import Header from '../Components/FilmeHeader'
-import Elenco from '../Components/FilmeElenco'
-import ComentariosContainer from '../Components/ComentariosContainer'
-import { Link } from "react-router-dom";
-import { filmes } from '../Services/FilmesMock';
-import Carrossel from "../Components/Carrossel";
-import filmeService from "../Services/FilmesService";
+// Arquivo: FilmePage.js
+
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import FilmesServiceApi from "../Services/FilmesServiceApi"; // <- Mude para o serviço da API
+
+// Seus componentes de UI
+import Banner from "../Components/FilmeBanner";
+import Header from '../Components/FilmeHeader';
+import ComentariosContainer from '../Components/ComentariosContainer';
+import Carrossel from "../Components/Carrossel";
 import NotFound from "./NotFound";
 import NaveBar from "../Components/NavBar";
 
+// Estilos
+import "./FilmePage.css";
 
 function FilmePage() {
+    const { id, tipo } = useParams();
 
-    const { id } = useParams(); // pega o parâmetro da URL
-    const filmeId = parseInt(id);
+    const [filme, setFilme] = useState(null);
+    const [carregando, setCarregando] = useState(true);
 
-    const filme = filmeId ? filmeService.getById(filmeId) : filmeService.getRandomFilme();
+    useEffect(() => {
+        // Função para buscar os dados do filme
+        const fetchFilme = async () => {
+            if (!id) {
+                setCarregando(false);
+                return;
+            }
+            
+            setCarregando(true);
+            const dadosDoFilme = tipo == 'movie' ? await FilmesServiceApi.getMovieById(id) : await FilmesServiceApi.getSerieById(id);
+            setFilme(dadosDoFilme);
+            setCarregando(false);
+        };
 
-    if (!filme) return <NotFound/>
+        fetchFilme();
+    }, [id]); // Este efeito roda sempre que o 'id' da URL mudar
+
+    if (carregando) {
+        return <div>Carregando filme...</div>;
+    }
+
+    if (!filme) {
+        return <NotFound />;
+    }
+
     return (
         <div className="Filme">
             <div className="Navbar">
-                <NaveBar/>
+                <NaveBar />
             </div>
             <div className="PaidetodosFilme">
                 <div className="divFilmeBanner">
-                    <Banner filme={filme}/>
+                    <Banner filme={filme} />
                 </div>
-
                 <div className="infos">
-                    <Header filme={filme}/>
+                    <Header filme={filme} />
                 </div>
-
             </div>
-
             <div className="container-comentarios">
-                <ComentariosContainer filme={filme}/>
+                <ComentariosContainer filme={filme} />
             </div>
-
-            <div className="container-relacionados">
-                <Carrossel listadeFilmes={filmes} descricao="Relacionados"/>
-            </div>
-
         </div>
-
     );
 }
 

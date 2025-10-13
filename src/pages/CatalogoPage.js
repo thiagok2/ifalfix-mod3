@@ -41,17 +41,19 @@ function CatalogoPage() {
     }
 
     return (
+        
         <div className='container'>
             <div className='navbar'>
                 <NavBar />
             </div>
 
-            {/* Adicione um "wrapper" para o carrossel e os botões */}
-            <div className='carousel-wrapper'>
-                {/* Botão de Navegação Esquerda */}
-                <button className="carousel-button prev" onClick={handlePrevClick}>
-                    &#8249;
-                </button>
+             
+            <div className='containers-catalogo'>
+                {
+                    itemList.map((filme, idx) => 
+                        <CardFilmeExtendido key={idx} filme={filme} />
+                    )
+                }
 
                 {/* Adicione a ref ao seu contêiner de filmes */}
                 <div className='containers-catalogo' ref={carouselRef}>
