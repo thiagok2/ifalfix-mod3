@@ -62,30 +62,19 @@ const getGenreNamesByIds = (genreIds, allGenres) => {
   return genreIds.map((id) => byId.get(id)).filter(Boolean).join(', ');
 };
 
-const mapMovieData = (filme, genres) => ({
-  id: filme.id,
-  titulo: filme.title,
-  fotoThumbnail: filme.poster_path ? `${IMAGE_BASE_URL}w500${filme.poster_path}` : null,
-  ano_lancamento: filme.release_date,
-  tipo: 'movie',
-  sinopse: filme.overview,
-  genero: getGenreNamesByIds(filme.genre_ids, genres),
-  elenco: '',
-  curtidas: filme.vote_count,
-  nota_avaliacao: filme.vote_average,
-});
+//-----------------------------------------
 
-const mapSerieData = (serie, genres) => ({
-  id: serie.id,
-  titulo: serie.name,
-  fotoThumbnail: serie.poster_path ? `${IMAGE_BASE_URL}w500${serie.poster_path}` : null,
-  ano_lancamento: serie.first_air_date,
-  tipo: 'series',
-  sinopse: serie.overview,
-  genero: getGenreNamesByIds(serie.genre_ids, genres),
+const mapData = (stream, genres, tipo) => ({
+  id: stream.id,
+  titulo: tipo === 'movie' ? stream.title : stream.name,
+  fotoThumbnail: stream.poster_path ? `${IMAGE_BASE_URL}w500${stream.poster_path}` : null,
+  ano_lancamento: tipo === 'movie' ? stream.release_date : stream.first_air_date,
+  tipo: tipo,
+  sinopse: stream.overview,
+  genero: getGenreNamesByIds(stream.genre_ids, genres),
   elenco: '',
-  curtidas: serie.vote_count,
-  nota_avaliacao: serie.vote_average,
+  curtidas: stream.vote_count,
+  nota_avaliacao: stream.vote_average,
 });
 
 
@@ -97,7 +86,7 @@ const FilmesServiceApi = {
     try {
       const genres = await GenreCache.get('movie');
       const data = await fetchTMDb('/movie/popular');
-      return data.results.map((f) => mapMovieData(f, genres));
+      return data.results.map((f) => mapData(f, genres, 'movie'));
     } catch (error) {
       console.error('Erro ao buscar filmes populares:', error);
       return [];
@@ -108,7 +97,7 @@ const FilmesServiceApi = {
     try {
       const genres = await GenreCache.get('tv');
       const data = await fetchTMDb('/tv/popular');
-      return data.results.map((s) => mapSerieData(s, genres));
+      return data.results.map((s) => mapData(s, genres, 'tv'));
     } catch (error) {
       console.error('Erro ao buscar séries populares:', error);
       return [];
@@ -119,47 +108,29 @@ const FilmesServiceApi = {
     try {
       const genres = await GenreCache.get('movie');
       const data = await fetchTMDb('/movie/top_rated');
-      return data.results.map((f) => mapMovieData(f, genres));
+      return data.results.map((f) => mapData(f, genres, 'movie'));
     } catch (error) {
       console.error('Erro ao buscar filmes mais votados:', error);
       return [];
     }
   },
 
-  getMovieById: async (movieId) => {
+  getById: async (id, tipo) => {
     try {
       // Busca os detalhes do filme
-      const filmeDetails = await fetchTMDb(`/movie/${movieId}`);
-      if (!filmeDetails) return null;
+      const details = await fetchTMDb(`/${tipo}/${id}`);
+      if (!details) return null;
 
       // Busca os gêneros para mapear os nomes
-      const allGenres = await GenreCache.get('movie');
-      
-      // Mapeia os dados para o formato que seu componente espera
-      // (Você pode adaptar este mapeamento conforme sua necessidade)
-      return mapMovieData(filmeDetails,allGenres);
+      const allGenres = await GenreCache.get(tipo);
 
+      return mapData(details, allGenres, tipo);
     } catch (error) {
-      console.error(`Erro ao buscar detalhes do filme ${movieId}:`, error);
+      console.error(`Erro ao buscar detalhes(${tipo}) ${id}`, error);
       return null;
     }
   },
 
-  getSerieById: async (serieId) => {
-    try {
-      // Busca os detalhes do filme
-      const serieDetails = await fetchTMDb(`/tv/${serieId}`);
-      if (!serieDetails) return null;
-
-      // Busca os gêneros para mapear os nomes
-      const allGenres = await GenreCache.get('tv');
-
-      return mapSerieData(serieDetails, allGenres);
-    } catch (error) {
-      console.error(`Erro ao buscar detalhes do filme ${serieId}:`, error);
-      return null;
-    }
-  },
   
 };
 

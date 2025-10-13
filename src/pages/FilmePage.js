@@ -30,7 +30,8 @@ function FilmePage() {
             }
             
             setCarregando(true);
-            const dadosDoFilme = tipo == 'movie' ? await FilmesServiceApi.getMovieById(id) : await FilmesServiceApi.getSerieById(id);
+            console.log('tipo:'+ tipo)
+            const dadosDoFilme = await FilmesServiceApi.getById(id, tipo);
             setFilme(dadosDoFilme);
             setCarregando(false);
         };
