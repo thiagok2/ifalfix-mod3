@@ -16,7 +16,7 @@ function CardFilmeExtendido({ filme }) { // A prop 'key' é usada pelo React e n
 
     return (
         <Link 
-            to={`/filme/${filme.id}`} 
+            to={`/filme/${filme.tipo}/${filme.id}`} 
             className='container-filme' 
             onClick={handleAddClicado}
         >

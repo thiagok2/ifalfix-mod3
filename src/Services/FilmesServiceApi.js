@@ -126,26 +126,7 @@ const FilmesServiceApi = {
     }
   },
 
-  getMovieCredits: async (movieId) => {
-    try {
-      const data = await fetchTMDb(`/movie/${movieId}/credits`);
-      return data.cast.slice(0, 5).map((a) => a.name).join(', ');
-    } catch (error) {
-      console.error(`Erro ao buscar elenco do filme ${movieId}:`, error);
-      return 'Elenco não disponível';
-    }
-  },
-
-  getSeriesCredits: async (seriesId) => {
-    try {
-      const data = await fetchTMDb(`/tv/${seriesId}/credits`);
-      return data.cast.slice(0, 5).map((a) => a.name).join(', ');
-    } catch (error) {
-      console.error(`Erro ao buscar elenco da série ${seriesId}:`, error);
-      return 'Elenco não disponível';
-    }
-  },
-    getMovieById: async (movieId) => {
+  getMovieById: async (movieId) => {
     try {
       // Busca os detalhes do filme
       const filmeDetails = await fetchTMDb(`/movie/${movieId}`);
@@ -156,20 +137,26 @@ const FilmesServiceApi = {
       
       // Mapeia os dados para o formato que seu componente espera
       // (Você pode adaptar este mapeamento conforme sua necessidade)
-      return {
-        id: filmeDetails.id,
-        titulo: filmeDetails.title,
-        fotoThumbnail: filmeDetails.poster_path ? `${IMAGE_BASE_URL}w500${filmeDetails.poster_path}` : null,
-        fotoBanner: filmeDetails.backdrop_path ? `${IMAGE_BASE_URL}original${filmeDetails.backdrop_path}` : null,
-        ano_lancamento: filmeDetails.release_date?.split('-')[0], // Pega só o ano
-        tipo: 'movie',
-        sinopse: filmeDetails.overview,
-        genero: filmeDetails.genres.map(g => g.name).join(', '),
-        nota_avaliacao: filmeDetails.vote_average.toFixed(1), // Formata para uma casa decimal
-        // Adicione outros campos que precisar aqui
-      };
+      return mapMovieData(filmeDetails,allGenres);
+
     } catch (error) {
       console.error(`Erro ao buscar detalhes do filme ${movieId}:`, error);
+      return null;
+    }
+  },
+
+  getSerieById: async (serieId) => {
+    try {
+      // Busca os detalhes do filme
+      const serieDetails = await fetchTMDb(`/tv/${serieId}`);
+      if (!serieDetails) return null;
+
+      // Busca os gêneros para mapear os nomes
+      const allGenres = await GenreCache.get('tv');
+
+      return mapSerieData(serieDetails, allGenres);
+    } catch (error) {
+      console.error(`Erro ao buscar detalhes do filme ${serieId}:`, error);
       return null;
     }
   },

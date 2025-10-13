@@ -16,7 +16,8 @@ import NaveBar from "../Components/NavBar";
 import "./FilmePage.css";
 
 function FilmePage() {
-    const { id } = useParams();
+    const { id, tipo } = useParams();
+
     const [filme, setFilme] = useState(null);
     const [carregando, setCarregando] = useState(true);
 
@@ -29,7 +30,7 @@ function FilmePage() {
             }
             
             setCarregando(true);
-            const dadosDoFilme = await FilmesServiceApi.getMovieById(id);
+            const dadosDoFilme = tipo == 'movie' ? await FilmesServiceApi.getMovieById(id) : await FilmesServiceApi.getSerieById(id);
             setFilme(dadosDoFilme);
             setCarregando(false);
         };

@@ -9,7 +9,7 @@ function CardFilme({ filme, expandido = false }) {
 
   return (
     <div className="card-container">
-      <Link className="card" to={`/filme/${filme.id}`}
+      <Link className="card" to={`/filme/${filme.tipo}/${filme.id}`}
         style={{ backgroundImage: `url(${filme.fotoThumbnail})` }}>
         <div className="titulo-card-heard">
           {filme.titulo}
