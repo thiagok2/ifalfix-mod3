@@ -117,19 +117,17 @@
             transition: top 0.4s, left 0.4s;
             z-index: -1; /* Coloca as bordas atrás do botão */
         }
-
-        /* As partes superior e esquerda da borda */
+/*
         .container button::before {
             border-left: 2px solid rgba(255, 0, 0, 0.403);
             border-top: 2px solid rgba(255, 0, 0, 0.403);
         } 
         
-        /* As partes inferior e direita da borda */
         .container button::after {
             border-right: 2px solid rgba(255, 0, 0, 0.403);
             border-bottom: 2px solid rgba(255, 0, 0, 0.403);
         } 
-
+*/
         /* Ao passar o mouse, move a borda superior esquerda para fora */
         .container button:hover::before {
             top: -5px;
