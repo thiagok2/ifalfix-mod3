@@ -23,11 +23,13 @@ function CatalogoPage() {
   }
 
     return (
+        
         <div className='container'>
             <div className='navbar'>
                 <NavBar />
             </div>
 
+             
             <div className='containers-catalogo'>
                 {
                     itemList.map((filme, idx) => 

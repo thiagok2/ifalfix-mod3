@@ -26,7 +26,6 @@ const Classificacao = ({ paraAdultos }) => {
 }
 
 function FilmeDestaque({ filme }) {
-    // Adiciona uma verificação para evitar erros se 'filme' ainda não carregou
     if (!filme) {
         return null;
     }
@@ -39,11 +38,18 @@ function FilmeDestaque({ filme }) {
     const imagemDeFundo = filme.imagem_fundo || filme.fotoThumbnail;
 
     return (
-        
-        <div className="detInical">
-            <div className="filme-card">  
+        // ESTRUTURA CORRIGIDA: A div principal agora tem a imagem de fundo
+        // E todo o conteúdo está DENTRO dela.
+        <section className="filme-destaque" style={{ backgroundImage: `url(${imagemDeFundo})` }}>
+            <div className="destaque-vertical">
+                <div className="destaque-horizontal">
+                    
+                    {/* Seu layout de informações */}
+                    <div className="logoNet">
+                        <SiNetflix className="logo" />
+                        <span className="nomeFilm">F I L M E</span>
+                    </div>
 
-                <div className="info-pai">
                     <div className="title">
                         <span className="nomeFilme1"> {filme.titulo} </span>
                         <span className="nomeFilme2"> {filme.genero} </span>
@@ -51,7 +57,6 @@ function FilmeDestaque({ filme }) {
 
                     <div className="info-pai">
                         <div className="option">
-                            {/* CORRIGIDO: O link agora leva para a página específica do filme */}
                             <Link to={`/filme/${filme.id}`} className="mais-informacoes" onClick={handleAddInteresse}>
                                 <CiCircleInfo className="ciculo" />
                                 <span className="mais"> Mais informações</span>
@@ -62,7 +67,7 @@ function FilmeDestaque({ filme }) {
 
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

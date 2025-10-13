@@ -1,13 +1,9 @@
-/* Arquivo: Pages/CatalogoPage.css */
 
 .containers-catalogo {
-  /* Estas 4 linhas criam a sua grade */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px; /* Espaçamento entre os cards */
-
-  /* Estilo do fundo e espaçamento da página */
-  background-color: #141414;
-  padding: 120px 40px; /* Espaço no topo e nas laterais */
+  gap: 30px; 
+  margin-top: 100px;
+    background-color: #141414;
 }

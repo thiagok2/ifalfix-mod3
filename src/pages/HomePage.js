@@ -58,7 +58,7 @@ function HomePage() {
       const novoFilmeAleatorio = popularMovies[Math.floor(Math.random() * popularMovies.length)];
       // Atualiza o estado do filme em destaque com o novo filme
       setFilmeDestaque(novoFilmeAleatorio);
-    }, 10000); // 10000 milissegundos = 10 segundos.
+    }, 100000000);  
 
     // IMPORTANTE: Função de limpeza.
     // O React executa isso quando o componente "sai da tela".
@@ -78,7 +78,7 @@ function HomePage() {
     <div className="home-page">
       <NavBar />
 
-      {filmeDestaque && <FilmeDestaque filme={filmeDestaque} />}
+     {filmeDestaque && <FilmeDestaque filme={filmeDestaque} />}
 
       {/* Carrossel de Filmes Populares */}
       {popularMovies.length > 0 && (

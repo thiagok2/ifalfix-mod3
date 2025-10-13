@@ -145,6 +145,35 @@ const FilmesServiceApi = {
       return 'Elenco não disponível';
     }
   },
+    getMovieById: async (movieId) => {
+    try {
+      // Busca os detalhes do filme
+      const filmeDetails = await fetchTMDb(`/movie/${movieId}`);
+      if (!filmeDetails) return null;
+
+      // Busca os gêneros para mapear os nomes
+      const allGenres = await GenreCache.get('movie');
+      
+      // Mapeia os dados para o formato que seu componente espera
+      // (Você pode adaptar este mapeamento conforme sua necessidade)
+      return {
+        id: filmeDetails.id,
+        titulo: filmeDetails.title,
+        fotoThumbnail: filmeDetails.poster_path ? `${IMAGE_BASE_URL}w500${filmeDetails.poster_path}` : null,
+        fotoBanner: filmeDetails.backdrop_path ? `${IMAGE_BASE_URL}original${filmeDetails.backdrop_path}` : null,
+        ano_lancamento: filmeDetails.release_date?.split('-')[0], // Pega só o ano
+        tipo: 'movie',
+        sinopse: filmeDetails.overview,
+        genero: filmeDetails.genres.map(g => g.name).join(', '),
+        nota_avaliacao: filmeDetails.vote_average.toFixed(1), // Formata para uma casa decimal
+        // Adicione outros campos que precisar aqui
+      };
+    } catch (error) {
+      console.error(`Erro ao buscar detalhes do filme ${movieId}:`, error);
+      return null;
+    }
+  },
+  
 };
 
 export default FilmesServiceApi;
