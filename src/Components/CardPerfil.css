@@ -1,46 +1,42 @@
-.card-container{
-    display: flex;
-    flex-direction: column;
-   
-    gap: 10px;
-}
-.Perfil{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    width: fit-content;
-    cursor: pointer;
-    transition:  transform ease 200ms;
-    text-decoration: none;
-    
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.Perfil:hover{
-    transform: scale(1.1);
-    
+.Perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  cursor: pointer;
+  transition: transform ease 200ms;
+  text-decoration: none;
 }
 
-.fotoPerfil{
-    width: 160px;
-    height: 160px;
-    border-radius: 2px;
-    margin: 15px;
-    
-}   
-
-.NomePerfil{
-    color: white;
-    font-size: 25px;
+.Perfil:hover {
+  transform: scale(1.1);
 }
 
-.card-footer{
-display: flex;
-flex-direction: row;
-
+.fotoPerfil {
+  width: 160px;
+  height: 160px;
+  border-radius: 2px;
+  margin: 15px;
 }
 
-.genero{
-    color: gray;
-    font-size: 20px;
+.NomePerfil {
+  color: white;
+  font-size: 25px;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+}
+
+.genero {
+  color: gray;
+  font-size: 20px;
 }

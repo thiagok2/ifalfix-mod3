@@ -1,31 +1,31 @@
-.minhaLista{
-    display: flex;
-    flex-direction: column;
-    color: white;
-    margin-top: 100px;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 20px;
-    margin-left: 45px;
-    padding: 20px;
-    gap:10px;
-    font-weight: 500;
-    margin-bottom: -80px;
+.minhaLista {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-top: 100px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  margin-left: 45px;
+  padding: 20px;
+  gap: 10px;
+  margin-bottom: -80px;
 }
-.carrosel{
-    display: flex;
-    flex-direction: row;
-    gap: 7px;
-    width: auto;
-    position: relative;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 3.5rem 0;
-    scroll-behavior: smooth;
-    overflow-clip-margin: content-box;
-    cursor: grab;
-    
+
+.carrosel {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+  width: auto;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 3.5rem 0;
+  scroll-behavior: smooth;
+  overflow-clip-margin: content-box;
+  cursor: grab;
 }
+
 .carrosel::-webkit-scrollbar {
   height: 8px; /* Altura da barra de scroll */
 }
@@ -43,23 +43,22 @@
 .carrosel::-webkit-scrollbar-thumb:hover {
   background: #555; /* Cor quando passa o mouse por cima */
 }
-.carrosel {
-  /* ... (as propriedades de antes: display, overflow-x, etc) ... */
 
-  /* Para Firefox */
-  scrollbar-width: none; 
-  /* Para Chrome, Safari e Edge */
-  &::-webkit-scrollbar {
-    display: none;
-  }
+/* Oculta scrollbar em diferentes navegadores */
+.carrosel {
+  scrollbar-width: none; /* Firefox */
 }
 
-.carrosel:active{
-    cursor: grabbing;
+.carrosel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Edge */
+}
+
+.carrosel:active {
+  cursor: grabbing;
 }
 
 .titulo-carrossel {
-  font-size: 26px;   
+  font-size: 26px;
   font-weight: bold;
   margin: 1.5px;
 }

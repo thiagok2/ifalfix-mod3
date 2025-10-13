@@ -1,89 +1,79 @@
-.nav-bar-pai{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-weight: normal;
-    gap: 20px;
-    margin-bottom: 140px;
-    padding-left: 30px;
-    justify-content: space-between;
-    background-image: linear-gradient(to top, #6f6f6f01, #000000FF);
-    z-index: 1000;
-    
- 
-    
+.nav-bar-pai {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: normal;
+  gap: 20px;
+  margin-bottom: 140px;
+  padding-left: 30px;
+  justify-content: space-between;
+  background-image: linear-gradient(to top, #6f6f6f01, #000000FF);
+  z-index: 1000;
 }
 
-.link{
-    cursor: pointer;
-    transition:  color 200ms ease;
-    color: aliceblue;
-    text-decoration: none;
-    font-size: 22px;
-    font-family: Arial, Helvetica, sans-serif;
-
+.link {
+  cursor: pointer;
+  transition: color 200ms ease;
+  color: aliceblue;
+  text-decoration: none;
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.imagem{
-    display: flex;
-    align-items: center;
-    height: 90px;
-    
+.link:hover {
+  color: rgb(169, 169, 169);
+  text-decoration: none;
 }
 
-.link:hover{
-    color:rgb(169, 169, 169);
-    text-decoration: none;
-    
+.imagem {
+  display: flex;
+  align-items: center;
+  height: 90px;
 }
 
-.nav-bar-link{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-    text-decoration: none;
-    
-    
+.nav-bar-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
 }
 
-.nav-bar-conta{
-    display: flex;
-    margin-right: 100px;
-    gap: 10px;
-     align-items: center;
-    cursor: pointer;
-    transition:  color 200ms ease;
-    font-size: 25px;
+.nav-bar-conta {
+  display: flex;
+  margin-right: 100px;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  transition: color 200ms ease;
+  font-size: 25px;
 }
 
-.linkconta{
-    text-decoration: none;
-    font-weight: bold;
-    color: inherit;
-    color: white;
-    text-decoration: none;
-    font-size: 22px;
+.linkconta {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  font-size: 22px;
 }
 
 .linkconta:hover {
   color: #e50914;
 }
 
-.conta:hover{
-    color:rgb(169, 169, 169);
-
+.conta:hover {
+  color: rgb(169, 169, 169);
 }
 
 .foto-conta {
   width: 40px;
   height: 40px;
 }
+
 .foto-conta:hover {
   transform: scale(1.1);
 }
