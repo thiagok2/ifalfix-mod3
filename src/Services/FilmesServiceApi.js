@@ -79,8 +79,12 @@ const mapData = (stream, genres, tipo) => ({
 
 
 const FilmesServiceApi = {
-  // Carregar os generos
-  //preloadGenres: async () => GenreCache.preloadBoth(),
+
+  getGeneros: async (type) => {
+    const endpoint = type === 'tv' ? '/genre/tv/list' : '/genre/movie/list';
+    const data = await fetchTMDb(endpoint);
+    return Array.isArray(data?.genres) ? data.genres : [];
+  },
 
   getPopularMovies: async () => {
     try {
