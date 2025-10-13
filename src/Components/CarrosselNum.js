@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import "./CarrosselNum.css";
 import CardFilme from "./CardFilme";
+import { Link } from "react-router-dom";
 
 function CarrosselNum({ listaNumerada }) {
   const scrollRef = useRef(null);
@@ -46,7 +47,9 @@ function CarrosselNum({ listaNumerada }) {
         <div className="carrosselNum" ref={scrollRef}>
           {listaNumerada.map((filme, idx) => (
             <div className="conjuntoNum" key={filme.id}>
-              <span className="numero">{idx + 1}</span>
+              <Link to={`/filme/${filme.id}`} class="link-num" key={idx}>
+                <span className="numero">{idx + 1}</span>
+              </Link>
               <CardFilme filme={filme} />
             </div>
           ))}
@@ -60,19 +63,6 @@ function CarrosselNum({ listaNumerada }) {
           ▶
         </button>
       </div>
-
-      {/* <div className='carrosselNum'>
-              {
-              listaNumerada.map((filme, idx) => (
-                      <Link to={`/filme/${filme.id}`} class="link-num" key={idx}>
-                        <div className='conjuntoNum'>
-                            <span className='numero'>{i++}</span>
-                            <img src={filme.fotoThumbnail} className="fotoNum" />
-                        </div>
-                      </Link>
-                ))
-              }
-            </div> */}
     </div>
   );
 }
