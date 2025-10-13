@@ -1,8 +1,8 @@
 import { useRef } from "react";
-import "./CarroselNum.css";
+import "./CarrosselNum.css";
 import CardFilme from "./CardFilme";
 
-function CarroselNum({ listaNumerada }) {
+function CarrosselNum({ listaNumerada }) {
   const scrollRef = useRef(null);
   let scrollInterval = null; //variável para guardar o intervalo
 
@@ -43,7 +43,7 @@ function CarroselNum({ listaNumerada }) {
           ◀
         </button>
 
-        <div className="carroselNum" ref={scrollRef}>
+        <div className="carrosselNum" ref={scrollRef}>
           {listaNumerada.map((filme, idx) => (
             <div className="conjuntoNum" key={filme.id}>
               <span className="numero">{idx + 1}</span>
@@ -61,7 +61,7 @@ function CarroselNum({ listaNumerada }) {
         </button>
       </div>
 
-      {/* <div className='carroselNum'>
+      {/* <div className='carrosselNum'>
               {
               listaNumerada.map((filme, idx) => (
                       <Link to={`/filme/${filme.id}`} class="link-num" key={idx}>
@@ -77,4 +77,4 @@ function CarroselNum({ listaNumerada }) {
   );
 }
 
-export default CarroselNum;
+export default CarrosselNum;

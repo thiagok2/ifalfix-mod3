@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import FilmesServiceApi from '../Services/FilmesServiceApi';
 import Carrossel from '../Components/Carrossel';
+import CarrosselNum from '../Components/CarrosselNum';
 import NavBar from '../Components/NavBar';
 import FilmeDestaque from "../Components/FilmeDestaque";
 
@@ -98,9 +99,8 @@ function HomePage() {
 
       {/* Carrossel de Filmes Mais Votados */}
       {topRatedMovies.length > 0 && (
-        <Carrossel 
-          descricao="Filmes Mais Votados" 
-          listadeFilmes={topRatedMovies}
+        <CarrosselNum
+          listaNumerada={topRatedMovies}
         /> 
       )}
           
