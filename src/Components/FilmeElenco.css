@@ -1,20 +1,21 @@
 .atores {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    margin-top: 4px;
-    padding: 10px;
-    border-left: 3px solid crimson; 
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 4px;
+  padding: 10px;
+  border-left: 3px solid crimson;
 }
 
 .titulo-elenco {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: white;
 }
 
 .ator {
-    font-size: 15px;
-    color: rgba(230, 230, 230, 0.9);
+  font-size: 15px;
+  color: rgba(230, 230, 230, 0.9);
 }
+

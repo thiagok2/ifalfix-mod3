@@ -37,8 +37,10 @@ function CardFilmeExtendido({ filme }) { // A prop 'key' é usada pelo React e n
             }
             
             <div className='introducao'>
-                {filme.sinopse}
+  {filme.sinopse.length > 165 ? filme.sinopse.slice(0, 165) + '...' : filme.sinopse}
             </div>
+
+
             
             <div className='footer-filme'>
                 <div className='footer-item'> {filme.elenco}</div>

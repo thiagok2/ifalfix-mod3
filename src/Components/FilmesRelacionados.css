@@ -1,26 +1,23 @@
-.filmes-container{
-    display: flex;
- 
-    flex-direction: row  ;
+.filmes-container {
+  display: flex;
+  flex-direction: row;
 }
 
-.filmes{
-display: flex;
-    flex-direction: row  ;
-    color: white;
-    width: 250px;
-    height: 250px;
-    padding: 10px;
-    gap: 10px;
-
+.filmes {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  width: 250px;
+  height: 250px;
+  padding: 10px;
+  gap: 10px;
 }
 
-
-.text-relacionados{
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    font-size: 50px;
-    color: white;
+.text-relacionados {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  font-size: 50px;
+  color: white;
 }
 

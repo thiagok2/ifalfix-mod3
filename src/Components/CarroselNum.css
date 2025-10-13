@@ -1,14 +1,14 @@
 .filmes {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    margin-top: 80px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    margin-left: 45px;
-    padding: 20px;
-    margin-bottom: -80px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-top: 80px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  margin-left: 45px;
+  padding: 20px;
+  margin-bottom: -80px;
 }
 
 .carrosel-container {
@@ -57,47 +57,46 @@
 .btn-scroll.right {
   right: 0;
 }
-.fotoNum {
-    display: flex;
-    width: 320px;
-    height: 250px;
-    margin-left: -30px;
-    margin-top: 22px;
-    border-radius: 10px;
-    flex-shrink: 0;
-    /*opacity: 0.85;*/
 
-    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 1));
-    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 1));
+.fotoNum {
+  display: flex;
+  width: 320px;
+  height: 250px;
+  margin-left: -30px;
+  margin-top: 22px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  /* opacity: 0.85; */
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 1));
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 1));
 }
 
 .fotoNum:hover {
-    z-index: 10;
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
+  z-index: 10;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-
 .conjuntoNum {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
 .numero {
-    font-weight: 900;
-    font-style: normal;
-    font-size: 320px;
-    -webkit-text-fill-color: rgb(0, 0, 0);
-    -webkit-text-stroke-width: 4px;
-    -webkit-text-stroke-color: #4d4d4d;
-    margin-right: -39px;
-    margin-bottom: 50px;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 320px;
+  -webkit-text-fill-color: rgb(0, 0, 0);
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: #4d4d4d;
+  margin-right: -39px;
+  margin-bottom: 50px;
 }
 
 .link-num {
-    text-decoration: none;
+  text-decoration: none;
 }

@@ -1,26 +1,19 @@
 .container-login {
-
   width: 90%;
   margin: 165px auto;
-
-  /*
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  padding: 40px;*/
-  
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/*BOTÃO ENTRAR*/
+/* Título */
 .container-login h1 {
   text-align: center;
   font-size: 30px;
   color: #ffffff;
 }
 
+/* Campos de entrada */
 .container-login .input-field {
   display: flex;
   align-items: center;
@@ -56,6 +49,7 @@
   color: #fff;
 }
 
+/* Lembrar senha / Esqueci */
 .container-login .recall-forget {
   display: flex;
   justify-content: space-between;
@@ -77,72 +71,64 @@
   text-decoration: underline;
 }
 
- /* Estilos principais do botão */
-        .container-login button {
-            /* Isso é crucial para que os pseudo-elementos ::before e ::after sejam posicionados em relação ao botão */
-            position: relative; 
-            
-            width: 100%;
-            height: 50px;
-            background: #fff;
-            border: none;
-            outline: none;
-            border-radius: 40px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            font-size: 16px;
-            color: #2c3e50;
-            font-weight: 700;
-            text-shadow: none;
-            transition: transform 0.2s ease-in-out; /* Adicionado para um efeito sutil de pressionar */
-        }
-        
-        .container-login button:active {
-            transform: scale(0.98); /* O botão encolhe ligeiramente ao ser clicado */
-        }
+/* Botão de login */
+.container-login button {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 16px;
+  color: #2c3e50;
+  font-weight: 700;
+  text-shadow: none;
+  transition: transform 0.2s ease-in-out;
+}
 
-        /* --- EFEITO DE BORDA ANIMADA NO BOTÃO --- */
-        
-        /* Cria os pseudo-elementos que formarão a borda animada */
-        .container-login button::before, .container-login button::after {
-            content: '';
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            box-sizing: border-box;
-            /* O border-radius deve corresponder ao raio do botão para um ajuste perfeito */
-            border-radius: 40px; 
-            transition: top 0.4s, left 0.4s;
-            z-index: -1; /* Coloca as bordas atrás do botão */
-        }
+.container-login button:active {
+  transform: scale(0.98);
+}
 
-        /* As partes superior e esquerda da borda */
-        .container-login button::before {
-            border-left: 2px solid rgba(255, 0, 0, 0.403);
-            border-top: 2px solid rgba(255, 0, 0, 0.403);
-        } 
-        
-        /* As partes inferior e direita da borda */
-        .container-login button::after {
-            border-right: 2px solid rgba(255, 0, 0, 0.403);
-            border-bottom: 2px solid rgba(255, 0, 0, 0.403);
-        } 
-*/
-        /* Ao passar o mouse, move a borda superior esquerda para fora */
-        .container-login button:hover::before {
-            top: -5px;
-            left: -5px;
-        }
+/* Bordas animadas do botão */
+.container-login button::before,
+.container-login button::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  border-radius: 40px;
+  transition: top 0.4s, left 0.4s;
+  z-index: -1;
+}
 
-        /* Ao passar o mouse, move a borda inferior direita para fora */
-        .container-login button:hover::after {
-            top: 5px;
-            left: 5px;
-        }
+.container-login button::before {
+  border-left: 2px solid rgba(255, 0, 0, 0.403);
+  border-top: 2px solid rgba(255, 0, 0, 0.403);
+}
 
-        
+.container-login button::after {
+  border-right: 2px solid rgba(255, 0, 0, 0.403);
+  border-bottom: 2px solid rgba(255, 0, 0, 0.403);
+}
+
+.container-login button:hover::before {
+  top: -5px;
+  left: -5px;
+}
+
+.container-login button:hover::after {
+  top: 5px;
+  left: 5px;
+}
+
+/* Link para cadastro */
 .container-login .signup-link {
   font-size: 14.5px;
   text-align: center;
@@ -159,6 +145,7 @@
   text-decoration: underline;
 }
 
+/* Logo */
 .imagem-logo {
   position: absolute;
   top: 20px;
@@ -166,10 +153,10 @@
   width: 50px;
   height: 50px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  object-fit: cover; 
+  object-fit: cover;
 }
 
-.imagem-logo:hover{
+.imagem-logo:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease;
-  }
+}

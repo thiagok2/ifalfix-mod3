@@ -1,10 +1,9 @@
 .PaidetodosFilme {
-    display: flex;
-    flex-direction: row;
-    margin-top: 55px;
-    gap: 5px;
-    padding: 20px;
-    
+  display: flex;
+  flex-direction: row;
+  margin-top: 55px;
+  gap: 5px;
+  padding: 20px;
 }
 
 .divFilmeBanner {
@@ -14,26 +13,24 @@
   object-position: center;
   position: relative;
   z-index: 0;
-    
 }
 
 .infos {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    color: white;
-    background: none;
-    padding-left: 10px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: white;
+  background: none;
+  padding-left: 10px;
 }
 
 .container-comentarios {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 20px;
-    padding-left: 50px;
-    gap: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 20px;
+  padding-left: 50px;
+  gap: 20px;
 }
-

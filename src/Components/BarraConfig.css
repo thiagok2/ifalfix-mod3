@@ -1,34 +1,28 @@
-.navegueconfig{
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-bottom: #EAEAEA solid 2px;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-weight: normal;
-    gap: 500px;
-    
-    z-index: 1000;
-    justify-content: space-around;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: black;
+.navegueconfig {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: #EAEAEA solid 2px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: normal;
+  gap: 500px;
+  z-index: 1000;
+  justify-content: space-around;
+  color: black;
 }
 
-.perfil{
-    border-radius: 3px;
-    height: 40px;
-    
+.perfil {
+  border-radius: 3px;
+  height: 40px;
 }
 
-.so{
-    gap:5px;
-    display: flex;
-    align-items: center;
-
+.so {
+  gap: 5px;
+  display: flex;
+  align-items: center;
 }

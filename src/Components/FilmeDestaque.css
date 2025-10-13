@@ -1,145 +1,136 @@
 .detInical {
-    display: flex;
-    flex-direction: column;
-    padding-top: 370px;
-    margin-left: 60px;
-    color: white;
-   
+  display: flex;
+  flex-direction: column;
+  padding-top: 370px;
+  margin-left: 60px;
+  color: white;
 }
 
 .title {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .nomeFilme1 {
-    font-size: 60px;
-    font-weight: 600;
+  font-size: 60px;
+  font-weight: 600;
 }
 
 .nomeFilme2 {
-    width: 300px;
-    font-weight: 500;
-    font-size: 20px;
-    
+  width: 300px;
+  font-weight: 500;
+  font-size: 20px;
 }
 
 .info-pai {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition-duration: none;
- 
-   
-    margin-top: 40px;
-    
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition-duration: none;
+  margin-top: 40px;
 }
 
 .option {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 40px;
-    transition-duration: none;    
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 40px;
+  transition-duration: none;
 }
 
 .assistir {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background-color: white;
-    color: black;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 12px 30px;
-    cursor: pointer;
-    transition: 0.3s;
-    border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
 }
 
 .assistir:hover {
-    background-color: #e6e6e6;
+  background-color: #e6e6e6;
 }
-.mais{
-    color: rgb(219, 218, 218);
-    width: fit-content;
+
+.mais {
+  color: rgb(219, 218, 218);
+  width: fit-content;
 }
 
 .mais-informacoes {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: rgb(255, 255, 255); /*color do botão de infor*/
-    font-weight: 500;
-    border-radius: 8px;
-    font-size: 30px;
-    margin-left: 12px;
-    padding: 12px 28px;
-    cursor: pointer;
-    transition: 0.3s;
-    border: none;
-    text-decoration: none;
-    width: fit-content;
-    
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgb(255, 255, 255); /* cor do botão de info */
+  font-weight: 500;
+  border-radius: 8px;
+  font-size: 30px;
+  margin-left: 12px;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+  text-decoration: none;
+  width: fit-content;
 }
 
-
 .logoNet {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .volume {
-    border-radius: 100%;
-    padding: 10px;
-    width: 23px;
-    height: 23px;
-    border: solid;
+  border-radius: 100%;
+  padding: 10px;
+  width: 23px;
+  height: 23px;
+  border: solid;
 }
 
-
 .circulo {
-    width: 10px;
-    height: 30px;
+  width: 10px;
+  height: 30px;
 }
 
 .logo {
-    color: red;
-    width: 24px;
-    height: 24px;
+  color: red;
+  width: 24px;
+  height: 24px;
 }
 
 .nomeFilm {
-    color: rgb(203, 203, 203);
+  color: rgb(203, 203, 203);
 }
+
 .filme-card {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 700px;        
-    width: fit-content;      
-
-    background-color: rgba(0, 0, 0, 0.297); 
-    padding: 24px;
-    border-radius: 12px;
-
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
-    /* backdrop-filter: blur(2px);  */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 700px;
+  width: fit-content;
+  background-color: rgba(0, 0, 0, 0.297);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  /* backdrop-filter: blur(2px); */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.filme-card:hover{
-    transform: translateY(-4px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+.filme-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
 .filme-img-wrapper {
@@ -154,32 +145,30 @@
 
 .filme-img-wrapper img {
   width: 100%;
-  height: auto; 
+  height: auto;
   object-fit: contain;
   display: block;
 }
+
 /* Arquivo: src/Components/FilmeDestaque.css */
-
-
 .filme-destaque {
   height: 100vh;
   background-size: cover;
   background-position: center;
   color: #FFF;
 }
+
 .destaque-vertical {
-  width: inherit;
   height: inherit;
-  background: linear-gradient(to top, #111 10%, transparent 90%);
+  background: linear-gradient(to top, #111 10%, transparent 50%);
 }
+
 .destaque-horizontal {
   width: inherit;
   height: inherit;
-  background: linear-gradient(to right, #111 30%, transparent 70%);
+  background: linear-gradient(to right, #111 10%, transparent 40%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 30px;
-  padding-bottom: 150px;
-  padding-top: 70px;
 }
