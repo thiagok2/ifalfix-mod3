@@ -72,12 +72,15 @@ function RegistroPage() {
         </div>
 
         {/* Botão Registrar */}
-        <button type="submit">Registrar</button>
+
+        <Link to = '/'>
+        <button type="submit" > Registrar</button>
+        </Link>
 
         {/* Link para Login */}
         <div className="login-link">
           <p>
-            Já tem uma conta? <Link to="/login">Login</Link>
+            Já tem uma conta? <Link to="/">Login</Link>
           </p>
         </div>
       </form>

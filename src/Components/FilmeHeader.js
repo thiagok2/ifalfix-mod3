@@ -27,11 +27,6 @@ function FilmeHeader({ filme }) {
 
                     <div className='sobre'>{filme.genero}</div>
                 </div>
-
-             
-               
-                
-
                 <div className='descricao'>
                     <div className='texto'>
                         {filme.sinopse}

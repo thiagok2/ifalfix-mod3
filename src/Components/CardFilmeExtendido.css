@@ -1,7 +1,7 @@
 .container-filme {
     display: flex;
     flex-direction: column;
-    border: solid 2px rgb(0, 0, 0);
+    border: solid 2px rgb(255, 0, 0);
     background-color: rgb(24, 23, 23);
     border-radius: 10px;
     width: 490px;
