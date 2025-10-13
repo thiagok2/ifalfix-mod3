@@ -4,12 +4,12 @@
   width: 350px;
   flex-shrink: 0;
   height: 220px;
-  color: aliceblue;
+  color: rgb(255, 255, 255);
   /* border: solid 2px red; */
 
   justify-content: space-between;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 10px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -34,11 +34,11 @@
 .titulo-card-heard {
   font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   margin-top: 200px;
 
   /* tira o flex */
   display: block;
-  line-height: 1.2;
+  line-height: 1;
   overflow: visible;
 }

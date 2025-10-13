@@ -129,7 +129,7 @@
             border-right: 2px solid rgba(255, 0, 0, 0.403);
             border-bottom: 2px solid rgba(255, 0, 0, 0.403);
         } 
-
+*/
         /* Ao passar o mouse, move a borda superior esquerda para fora */
         .container-login button:hover::before {
             top: -5px;

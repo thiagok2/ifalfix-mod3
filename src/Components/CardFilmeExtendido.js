@@ -21,8 +21,6 @@ function CardFilmeExtendido({ filme }) { // A prop 'key' é usada pelo React e n
             onClick={handleAddClicado}
         >
             <div className='header-filme'>
-                <span className='filme-titulo'>{filme.titulo}</span>
-                <span className="filme-comentarios"> <FaComments /> {filme.numero_comentarios}</span>
             </div>
 
             <div className='img-container'>
