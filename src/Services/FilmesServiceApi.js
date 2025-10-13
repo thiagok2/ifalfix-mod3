@@ -80,7 +80,7 @@ const mapData = (stream, genres, tipo) => ({
 
 const FilmesServiceApi = {
   // Carregar os generos
-  preloadGenres: async () => GenreCache.preloadBoth(),
+  //preloadGenres: async () => GenreCache.preloadBoth(),
 
   getPopularMovies: async () => {
     try {
