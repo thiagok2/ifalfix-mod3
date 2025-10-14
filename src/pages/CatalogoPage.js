@@ -56,7 +56,7 @@ function CatalogoPage() {
                 <CarrosselGenero handleFiltroGenero={handleFiltroGenero}/>
             </div>
 
-            <div className='containers-catalogo'>
+            <div className='containers-catalogo2'>
                 {/* Adicione a ref ao seu contêiner de filmes */}
                 <div className='containers-catalogo' ref={carouselRef}>
                     {
