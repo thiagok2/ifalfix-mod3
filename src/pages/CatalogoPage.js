@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import CardFilmeExtendido from '../Components/CardFilmeExtendido';
 import { carregarDadosCatalogo } from "../Configuracoes/Catalogo";
 import "./CatalogoPage.css";
+import FilmesServiceApi from "../Services/FilmesServiceApi";
 
 function CatalogoPage() {
     const { tipo } = useParams();
@@ -17,6 +18,7 @@ function CatalogoPage() {
     const carouselRef = useRef(null);
 
     useEffect(() => {
+        FilmesServiceApi.getMoviesByGenero('THIAGo');
         carregarDadosCatalogo(tipo, setItemList, setCarregando, setErro);
     }, [tipo]);
 

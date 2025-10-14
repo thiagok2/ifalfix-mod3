@@ -131,6 +131,17 @@ const FilmesServiceApi = {
     }
   },
 
+  getMoviesByGenero: async (generoIds) => {
+    try {
+      const genres = await GenreCache.get('movie');
+      const data = await fetchTMDb(`/discover/movie?with_genres=${generoIds}`);
+      return data.results.map((f) => mapData(f, genres, 'movie'));
+    } catch (error) {
+      console.error('Erro ao buscar filmes mais votados:', error);
+      return [];
+    }
+  }
+
   
 };
 
