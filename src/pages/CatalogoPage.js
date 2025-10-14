@@ -19,7 +19,7 @@ function CatalogoPage() {
 
     useEffect(() => {
         carregarDadosCatalogo(tipo, setItemList, setCarregando, setErro, generoSelecionado);
-    }, [generoSelecionado]);
+    }, [tipo, generoSelecionado]);
 
 
     const handleFiltroGenero = (genero) => {
