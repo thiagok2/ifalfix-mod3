@@ -7,6 +7,7 @@ import CardFilmeExtendido from '../Components/CardFilmeExtendido';
 import { carregarDadosCatalogo } from "../Configuracoes/Catalogo";
 import "./CatalogoPage.css";
 import FilmesServiceApi from "../Services/FilmesServiceApi";
+import CarrosselGenero from "../Components/CarrosselGenero.js";
 
 function CatalogoPage() {
     const { tipo } = useParams();
@@ -14,23 +15,26 @@ function CatalogoPage() {
     const [carregando, setCarregando] = useState(true);
     const [erro, setErro] = useState(null);
 
-    // Crie uma referência para o contêiner do carrossel
-    const carouselRef = useRef(null);
+    const [generoSelecionado, setGeneroSelecionado] = useState(null);
+
 
     useEffect(() => {
-        FilmesServiceApi.getMoviesByGenero('THIAGo');
-        carregarDadosCatalogo(tipo, setItemList, setCarregando, setErro);
-    }, [tipo]);
+        carregarDadosCatalogo(tipo, setItemList, setCarregando, setErro, generoSelecionado);
+    }, [generoSelecionado]);
 
-    // Função para rolar para a direita ao clicar
+
+    const handleFiltroGenero = (genero) => {
+        console.log('catalogo:genero::'+genero)
+        setGeneroSelecionado(genero);
+    };
+
+    const carouselRef = useRef(null);
     const handleNextClick = () => {
         if (carouselRef.current) {
             // O valor 300 pode ser ajustado conforme a largura dos seus cards + gap
             carouselRef.current.scrollBy({ left: 300, behavior: 'smooth' });
         }
     };
-
-    // Função para rolar para a esquerda ao clicar
     const handlePrevClick = () => {
         if (carouselRef.current) {
             // O valor 300 pode ser ajustado conforme a largura dos seus cards + gap
@@ -49,14 +53,11 @@ function CatalogoPage() {
                 <NavBar />
             </div>
 
-             
-            <div className='containers-catalogo'>
-                {
-                    itemList.map((filme, idx) => 
-                        <CardFilmeExtendido key={idx} filme={filme} />
-                    )
-                }
+            <div >
+                <CarrosselGenero handleFiltroGenero={handleFiltroGenero}/>
+            </div>
 
+            <div className='containers-catalogo'>
                 {/* Adicione a ref ao seu contêiner de filmes */}
                 <div className='containers-catalogo' ref={carouselRef}>
                     {

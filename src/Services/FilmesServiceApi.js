@@ -79,8 +79,12 @@ const mapData = (stream, genres, tipo) => ({
 
 
 const FilmesServiceApi = {
-  // Carregar os generos
-  preloadGenres: async () => GenreCache.preloadBoth(),
+
+  getGeneros: async (type) => {
+    const endpoint = type === 'tv' ? '/genre/tv/list' : '/genre/movie/list';
+    const data = await fetchTMDb(endpoint);
+    return Array.isArray(data?.genres) ? data.genres : [];
+  },
 
   getPopularMovies: async () => {
     try {
@@ -131,10 +135,10 @@ const FilmesServiceApi = {
     }
   },
 
-  getMoviesByGenero: async (generoIds) => {
+  getByGenero: async (generoIds, tipo = 'movie') => {
     try {
-      const genres = await GenreCache.get('movie');
-      const data = await fetchTMDb(`/discover/movie?with_genres=${generoIds}`);
+      const genres = await GenreCache.get(tipo);
+      const data = await fetchTMDb(`/discover/${tipo}?with_genres=${generoIds}`);
       return data.results.map((f) => mapData(f, genres, 'movie'));
     } catch (error) {
       console.error('Erro ao buscar filmes mais votados:', error);
