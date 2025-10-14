@@ -18,8 +18,11 @@ import "./FilmePage.css";
 function FilmePage() {
     const { id, tipo } = useParams();
 
+    const [comentarios, setComentarios] = useState([]);
     const [filme, setFilme] = useState(null);
     const [carregando, setCarregando] = useState(true);
+    const [similares, setSimilares] = useState([]);
+    const [recomendacao, setRecomendacao] = useState([]);
 
     useEffect(() => {
         // Função para buscar os dados do filme
@@ -30,14 +33,25 @@ function FilmePage() {
             }
             
             setCarregando(true);
+            setFilme(null);
+
             console.log('tipo:'+ tipo)
             const dadosDoFilme = await FilmesServiceApi.getById(id, tipo);
             setFilme(dadosDoFilme);
             setCarregando(false);
+
+            if(dadosDoFilme){
+                const similares = await FilmesServiceApi.getSimilar(id, tipo);
+                setSimilares(similares);
+
+                const recomendacao = await FilmesServiceApi.getRecomedado(id, tipo);
+                setRecomendacao(recomendacao);
+            }
+            setCarregando(false);
         };
 
         fetchFilme();
-    }, [id]); // Este efeito roda sempre que o 'id' da URL mudar
+    }, [id,tipo]); // Este efeito roda sempre que o 'id' da URL mudar
 
     if (carregando) {
         return <div>Carregando filme...</div>;
@@ -60,9 +74,27 @@ function FilmePage() {
                     <Header filme={filme} />
                 </div>
             </div>
+
+
+            <div className="container-similares">
+            <Carrossel listadeFilmes={similares} descricao="Filmes Similares" />
+            </div>
+
+            <div className="container-recomendados">
+                <Carrossel listadeFilmes={recomendacao} descricao="Recomendados" />
+
+            </div>
+
+
             <div className="container-comentarios">
                 <ComentariosContainer filme={filme} />
             </div>
+            <div>
+     
+
+            </div>
+
+
         </div>
     );
 }
