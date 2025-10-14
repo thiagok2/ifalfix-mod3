@@ -51,7 +51,7 @@ function CatalogoPage() {
                 <NavBar />
             </div>
 
-            <div className="container-generos">
+            <div >
                 <CarrosselGenero handleFiltroGenero={handleFiltroGenero}/>
             </div>
 
