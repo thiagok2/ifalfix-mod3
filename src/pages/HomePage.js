@@ -5,6 +5,7 @@ import FilmesServiceApi from '../Services/FilmesServiceApi';
 import Carrossel from '../Components/Carrossel';
 import NavBar from '../Components/NavBar';
 import FilmeDestaque from "../Components/FilmeDestaque";
+import Rodape from '../Components/Rodape';
 
 function HomePage() {
   // Seus estados continuam os mesmos
@@ -105,9 +106,8 @@ function HomePage() {
       )}
           
     
-    
+    <Rodape />
       
-    
     </div>
   );
 }

@@ -1,0 +1,21 @@
+.rodape {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rodape a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.rodape a:hover {
+    text-decoration: underline;
+}
