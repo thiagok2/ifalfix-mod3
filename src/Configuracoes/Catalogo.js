@@ -11,7 +11,7 @@ export const carregarDadosCatalogo = async (tipo, setItemList, setCarregando, se
       console.log("Carregando dados do gênero:", genero);
 
       const type = tipo == 'filmes' ? 'movie' : 'tv';
-      dados = await FilmesServiceApi.getByGenero(genero.id, type);
+      dados = await FilmesServiceApi.getByGenero(genero?.id, type);
     
     } else {
       dados = tipo === 'filmes' ? 

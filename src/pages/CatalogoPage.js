@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 import CardFilmeExtendido from '../Components/CardFilmeExtendido';
 import { carregarDadosCatalogo } from "../Configuracoes/Catalogo";
 import "./CatalogoPage.css";
-import FilmesServiceApi from "../Services/FilmesServiceApi";
 import CarrosselGenero from "../Components/CarrosselGenero.js";
 
 function CatalogoPage() {

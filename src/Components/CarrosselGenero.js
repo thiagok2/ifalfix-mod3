@@ -22,6 +22,9 @@ function CarrosselGenero ({handleFiltroGenero}){
 
     return(
         <div className='container-generos'>
+            <div key={0} className='botao-genero' onClick={() => handleFiltroGenero(null)}>
+                Todos
+            </div>
             {generos.map((genero) => (
                 <div key={genero.id} className='botao-genero' onClick={() => handleFiltroGenero(genero)}>
                     {genero.name}
