@@ -7,6 +7,8 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import TrendsPage from "./pages/TrendsPage";
 import RegistroPage from "./pages/RegistroPage";
+import  PoliticaPage from "./pages/PoliticaPage"
+import Rodape from "./Components/Rodape";
 
 function MainRoutes() {
     return (
@@ -23,6 +25,8 @@ function MainRoutes() {
             <Route path="/filme" element={<FilmePage />} />
             <Route path="/filme/:tipo/:id" element={<FilmePage />} />
             <Route path="/trends"  element={<TrendsPage />} />
+
+            <Route path="/privacidade"  element={<PoliticaPage />} />
             
             <Route path="/catalogo" element={<CatalogoPage />} />
             <Route path="/catalogo/:tipo" element={<CatalogoPage />} />

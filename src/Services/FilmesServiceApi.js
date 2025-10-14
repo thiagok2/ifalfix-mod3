@@ -1,4 +1,4 @@
-const API_KEY = process.env.REACT_APP_TMDB_API_KEY || 'f23c708f03660b2fc756a8d979dbe426';
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY || '6570fc94237e7d374376204d4a47210f';
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/';
 
@@ -79,8 +79,12 @@ const mapData = (stream, genres, tipo) => ({
 
 
 const FilmesServiceApi = {
-  // Carregar os generos
-  preloadGenres: async () => GenreCache.preloadBoth(),
+
+  getGeneros: async (type) => {
+    const endpoint = type === 'tv' ? '/genre/tv/list' : '/genre/movie/list';
+    const data = await fetchTMDb(endpoint);
+    return Array.isArray(data?.genres) ? data.genres : [];
+  },
 
   getPopularMovies: async () => {
     try {
@@ -165,6 +169,25 @@ const FilmesServiceApi = {
     }
   },
 
+  getByGenero: async (generoIds, tipo = 'movie') => {
+    try {
+      const genres = await GenreCache.get(tipo);
+      const data = await fetchTMDb(`/discover/${tipo}?with_genres=${generoIds}`);
+      return data.results.map((f) => mapData(f, genres, tipo));
+    } catch (error) {
+      console.error('Erro ao buscar recomendação para (${tipo}) ${id}:',error); 
+      return [];
+    }
+  },
+  getComentarios: async(id,tipo) => {
+    try{
+      const data = await fetchTMDb(`/${tipo}/${id}/reviews`);
+      return data
+    } catch (error) {
+      console.error('Erro ao buscar recomendação para (${tipo}) ${id}:',error); 
+      return [];
+    }
+  }
 };
 
 export default FilmesServiceApi;

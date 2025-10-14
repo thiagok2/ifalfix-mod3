@@ -1,19 +1,17 @@
-.botao-vazado{
-    color: white;
-    border: solid 1px white;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-family: monospace;
-    font-size: 25px;
-    font-weight: 400;
-    letter-spacing: 4px;
-    transition:  transform ease 200ms;
-    cursor: pointer;
-    text-decoration: none;
+.botao-vazado {
+  color: white;
+  border: solid 1px white;
+  padding: 10px 20px;
+  font-family: monospace;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  transition: transform ease 200ms;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.botao-vazado:hover{
-    transform: scale(1.1);
-
+.botao-vazado:hover {
+  transform: scale(1.1);
 }
+

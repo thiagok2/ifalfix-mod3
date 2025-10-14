@@ -1,43 +1,37 @@
-.lateral{
-    background-color: #FAFAFA;
-    display: flex;
-    flex-direction: column;
-    color: black;
-    gap: 40px;
-    width: 300px;
-    text-decoration: none;
-
-    
+.lateral {
+  background-color: #FAFAFA;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  gap: 40px;
+  width: 300px;
+  text-decoration: none;
 }
 
-
-
-.secao{
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    height: 30px;
-    padding: 10px;
-    gap: 12px;
-    transition: background-color 70ms ease;
-    text-decoration: none;
-
+.secao {
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 10px;
+  gap: 12px;
+  transition: background-color 70ms ease;
+  text-decoration: none;
 }
-.secao:hover{
-    background-color: rgb(223, 223, 223);
-   
 
+.secao:hover {
+  background-color: rgb(223, 223, 223);
 }
-.icon{
-    height: 30px;
-    text-decoration: none;
-    width: 30px;
-    color: black;
 
-
+.icon {
+  height: 30px;
+  width: 30px;
+  color: black;
+  text-decoration: none;
 }
-.config-menu-lateral{
-    text-decoration: none;
-    font-size: 20px;
-    color: black;
+
+.config-menu-lateral {
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
 }

@@ -1,229 +1,202 @@
 .PaiHeader {
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
-    gap: 40px;
-    max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  gap: 40px;
+  max-width: 700px;
 }
 
-.texto{
-    display: flex;
-    font-family:Arial, Helvetica, sans-serif
+.texto {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
 
 .infoFilme {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    height: auto; 
-    padding: 5px ;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  height: auto;
+  padding: 5px;
 }
-
 
 .Tempo {
-    font-size: 16px;
-    color: rgba(200, 200, 200, 0.85);
+  font-size: 16px;
+  color: rgba(200, 200, 200, 0.85);
 }
 
-.caracteristicas{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-        align-items: center;
-
-    gap: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+.caracteristicas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
 
-.lancamento{
-    font-weight: bold;
+.lancamento {
+  font-weight: bold;
 }
 
-.temporadas{
-    font-weight: bold;
+.temporadas {
+  font-weight: bold;
 }
 
 .classificacao {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
 }
 
-.hd-texto{
-    font-weight: bold;
-    border: solid 1px white;
-    border-radius: 2px;
-
-    width: 40px;
-    height: 25px;
-    padding-left: 5px;
+.hd-texto {
+  font-weight: bold;
+  border: solid 1px white;
+  border-radius: 2px;
+  width: 40px;
+  height: 25px;
+  padding-left: 5px;
 }
 
 .faixa-etaria-icon {
-    width: 40px;
-    height: 28px;
-    padding: 10px;
-    font-size: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+  width: 40px;
+  height: 28px;
+  padding: 10px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
-.faixa-etaria-icon:hover{
+.faixa-etaria-icon:hover {
   scale: 1.08;
 }
 
-
 .icon-green {
-    border-radius: 5px;
-    background: green;
-    color: white;
+  border-radius: 5px;
+  background: green;
+  color: white;
 }
 
 .icon-red {
-    border-radius: 5px;
-    background: red;
-    color: white;
+  border-radius: 5px;
+  background: red;
+  color: white;
 }
 
-
-
 .sobre {
-    font-size: 18px;
-    color: white;
-    line-height: 1.4;  
+  font-size: 18px;
+  color: white;
+  line-height: 1.4;
 }
 
 .descricao {
-    font-size: 20px;
-    color: white;
-    line-height: 1.4;
-
-    gap: 40px;
+  font-size: 20px;
+  color: white;
+  line-height: 1.4;
+  gap: 40px;
 }
-
 
 .genero-elenco-estefilme {
-    display: flex;
-    flex-direction: row; 
-    justify-content: space-between;
-    gap: 10px;
-    min-width: 260px;
-    border: solid 1px white;
-    background-color: rgba(245, 245, 245, 0.95);
-    border-radius: 6px;
-    padding: 8px 12px;
-    color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 260px;
+  border: solid 1px white;
+  background-color: rgba(245, 245, 245, 0.95);
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: black;
 }
-
-
 
 .nomezinho {
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    padding: 2px 0;
-    
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: 2px 0;
 }
 
-
-.card-menu{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    margin-top: 26px;
-    margin-right: 10px;
-    
-    /* border: solid 2px red; */
+.card-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 26px;
+  margin-right: 10px;
+  /* border: solid 2px red; */
 }
 
-.cor-visao{
-    color: rgb(255, 0, 0);
-    font-size: 20px;
+.cor-visao {
+  color: rgb(255, 0, 0);
+  font-size: 20px;
 }
 
 .Nome {
-display: flex;
-flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
 }
 
 .atores-container {
-   display: flex;
-    flex-direction: row;
-    border-left: 3px solid crimson; 
-   
-    padding: 10px;
- 
-    margin-top: 25px;
-
+  display: flex;
+  flex-direction: row;
+  border-left: 3px solid crimson;
+  padding: 10px;
+  margin-top: 25px;
 }
 
 .atores-container .titulo-elenco {
-    font-size: 18px;
-    font-weight: 600;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .atores-container .ator {
-    font-size: 15px;
-    color: rgba(230, 230, 230, 0.9);
-
+  font-size: 15px;
+  color: rgba(230, 230, 230, 0.9);
 }
 
-.Botoes-detalhes{
+.Botoes-detalhes {
   display: flex;
   gap: 20px;
-  padding-top: 20px;
-
-
-    width: 200px;
+  padding-top: 70px;
+  width: 200px;
   height: 40px;
   border-radius: 5px;
-  padding-top: 70px;
 }
-
-
 
 .estilo-botao,
-.estilo-lista{
-   display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; /* espaço entre ícone e texto */
-    min-width: 150px; /* largura fixa igual */
-    height: 45px; /* altura fixa igual */
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    transition: transform 0.2s;
-    text-transform: uppercase;
-
+.estilo-lista {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* espaço entre ícone e texto */
+  min-width: 150px; /* largura fixa igual */
+  height: 45px; /* altura fixa igual */
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  text-transform: uppercase;
 }
 
-
 .estilo-botao {
-    background-color: #ff0033;
-    color: white;
-    border: none;
+  background-color: #ff0033;
+  color: white;
+  border: none;
 }
 
 .estilo-lista {
-    background-color: white;
-    color: black;
-    border: 1px solid #ccc;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
 }
 
 .estilo-botao:hover,
 .estilo-lista:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }

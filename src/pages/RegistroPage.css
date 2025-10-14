@@ -4,9 +4,7 @@
   border: 2px solid rgba(236, 91, 91, 0.3);
   border-radius: 12px;
   padding: 50px;
-
-  margin: 0 auto;
-  margin-top: 200px;
+  margin: 200px auto 0 auto;
 }
 
 .registro-container h1 {

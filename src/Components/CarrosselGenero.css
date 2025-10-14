@@ -1,0 +1,26 @@
+.container-generos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    width: 74%;
+    margin-top: 100px;
+    margin-left: 13%;
+}
+
+.botao-genero {
+    display: flex;
+    align-items: center;
+
+    background-color: #181817;
+    
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    padding: 10px;
+
+    /* border: solid 2px; */
+    /* border-color: red; */
+    border-radius: 15px;
+}

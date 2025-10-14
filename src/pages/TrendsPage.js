@@ -21,13 +21,12 @@ function TrendsPage() {
                         <div className='container-filmeComentado'>
                             <div className='filme-box'>
                                 <CardFilmeExtendido key={idx} filme={filme} />
-                                {/* <CardFilme filme={filme} expandido={true} key={idx} /> */}
+                                {/*<CardFilme filme={filme} expandido={false} key={idx} /> */}
                             </div>
                             <div className='comentarios-box'>
                                 <ComentariosContainer filme={filme} showAvaliacao={false}/>
                             </div>
-                        </div>
-                            
+                        </div>     
                     )
                 }
             </div>
