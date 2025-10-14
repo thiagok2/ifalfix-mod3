@@ -4,7 +4,7 @@ import { FaPlay } from "react-icons/fa";
 import { Link } from 'react-router-dom'
 
 
-function FilmeHeader({ filme }) {
+function FilmeHeader({ filme , onAssistirClicado}) {
     return (
         <div className='PaiHeader'>
             <div className='infoFilme'>
@@ -36,7 +36,12 @@ function FilmeHeader({ filme }) {
                  
                      <div className='Botoes-detalhes'>
         
-                          <span className='estilo-botao'><FaPlay color ="000000" className='Icone'/> Assistir</span>
+
+
+
+                          <span className='estilo-botao' onClick={onAssistirClicado}><FaPlay color ="000000" className='Icone'/> Assistir</span>
+
+
 
                            <span className='estilo-lista'> <IoAddCircleOutline color ="000000" className='Lista'/>Minha Lista </span>
                      </div>

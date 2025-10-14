@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import FilmesServiceApi from "../Services/FilmesServiceApi"; // <- Mude para o serviço da API
+import FilmesServiceApi from "../Services/FilmesServiceApi";
 
 // Seus componentes de UI
 import Banner from "../Components/FilmeBanner";
 import Header from '../Components/FilmeHeader';
+import ModeladorTrailer from '../Components/ModeladorTrailer'; // <- O nome do componente do Modal
 import ComentariosContainer from '../Components/ComentariosContainer';
 import Carrossel from "../Components/Carrossel";
 import NotFound from "./NotFound";
@@ -18,40 +19,78 @@ import "./FilmePage.css";
 function FilmePage() {
     const { id, tipo } = useParams();
 
-    const [comentarios, setComentarios] = useState([]);
+    // CORRIGIDO: Padronizando os nomes para camelCase (padrão do React)
+    const [trailerKey, setTrailerKey] = useState(null); 
+    const [isModeladorOpen, setIsModeladorOpen] = useState(false);
+    
     const [filme, setFilme] = useState(null);
     const [carregando, setCarregando] = useState(true);
     const [similares, setSimilares] = useState([]);
     const [recomendacao, setRecomendacao] = useState([]);
 
+    const [comentarios, setComentarios] = useState([]);
+
     useEffect(() => {
-        // Função para buscar os dados do filme
         const fetchFilme = async () => {
-            if (!id) {
-                setCarregando(false);
-                return;
-            }
+            if (!id || !id ) return ;
+            
             
             setCarregando(true);
+            setComentarios([]);
             setFilme(null);
+            setTrailerKey(null); // Limpa a chave do trailer anterior
 
-            console.log('tipo:'+ tipo)
             const dadosDoFilme = await FilmesServiceApi.getById(id, tipo);
             setFilme(dadosDoFilme);
-            setCarregando(false);
 
-            if(dadosDoFilme){
-                const similares = await FilmesServiceApi.getSimilar(id, tipo);
-                setSimilares(similares);
+            const videoData = await FilmesServiceApi.getVideoTraile(id, tipo);
 
-                const recomendacao = await FilmesServiceApi.getRecomedado(id, tipo);
-                setRecomendacao(recomendacao);
+            // CORRIGIDO: Usando 'YouTube' com letras maiúsculas, como vem da API
+            const oficialTrailer = videoData.results.find(
+                (video) => video.type === 'Trailer' && video.site === 'YouTube' && video.official
+            );
+            
+            if (oficialTrailer) {
+                setTrailerKey(oficialTrailer.key);
+            } else {
+                const anyTrailer = videoData.results.find(
+                    (video) => video.type === 'Trailer' && video.site === 'YouTube'
+                );
+                if (anyTrailer) {
+                    setTrailerKey(anyTrailer.key);
+                }
+            }
+            
+            if (dadosDoFilme) {
+                const similaresData = await FilmesServiceApi.getSimilar(id, tipo);
+                setSimilares(similaresData);
+
+                const recomendacaoData = await FilmesServiceApi.getRecomedado(id, tipo);
+                setRecomendacao(recomendacaoData);
+
+                const comentariosData = await FilmesServiceApi.getComentarios(id, tipo);
+                setComentarios(comentariosData.results || []);
             }
             setCarregando(false);
         };
 
         fetchFilme();
-    }, [id,tipo]); // Este efeito roda sempre que o 'id' da URL mudar
+    }, [id, tipo]);
+
+    // Função para ABRIR o modal
+    const headerOpenModelador = () => {
+       // CORRIGIDO: Usando a variável com o nome correto 'trailerKey'
+       if (trailerKey) {    
+        setIsModeladorOpen(true);
+       } else {
+        alert('Trailer não encontrado');
+       }
+    };
+
+    // NOVO: Função para FECHAR o modal que estava faltando
+    const handleCloseModal = () => {
+        setIsModeladorOpen(false);
+    };
 
     if (carregando) {
         return <div>Carregando filme...</div>;
@@ -71,30 +110,29 @@ function FilmePage() {
                     <Banner filme={filme} />
                 </div>
                 <div className="infos">
-                    <Header filme={filme} />
+                    <Header filme={filme} onAssistirClicado={headerOpenModelador}/>
                 </div>
+            </div> 
+              <div className="container-comentarios">
+                <ComentariosContainer comentarios={comentarios} nota_avaliacao={filme.vote_average} />
             </div>
 
-
             <div className="container-similares">
-            <Carrossel listadeFilmes={similares} descricao="Filmes Similares" />
+                <Carrossel listadeFilmes={similares} descricao="Filmes Similares" />
             </div>
 
             <div className="container-recomendados">
                 <Carrossel listadeFilmes={recomendacao} descricao="Recomendados" />
-
             </div>
 
-
-            <div className="container-comentarios">
-                <ComentariosContainer filme={filme} />
-            </div>
-            <div>
-     
-
-            </div>
-
-
+         
+            
+            {/* CORRIGIDO: Passando as props com os nomes corretos */}
+            <ModeladorTrailer 
+                isOpen={isModeladorOpen} 
+                onClose={handleCloseModal}  
+                trailerKey={trailerKey} 
+            />
         </div>
     );
 }
