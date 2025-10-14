@@ -166,9 +166,12 @@
 .destaque-horizontal {
   width: inherit;
   height: inherit;
-  background: linear-gradient(to right, #111 10%, transparent 40%);
+  background: linear-gradient(to right, #000000 30%, transparent 70%);
+  background: linear-gradient(to top, #000000, transparent 12%);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 30px;
+  padding-left: 70px; /* Ajuste de padding - informação do filme */
+  padding-bottom: 100px; /* Ajuste de padding - informação do filme */
+  padding-top: 70px; /* Ajuste de padding - informação do filme */
 }

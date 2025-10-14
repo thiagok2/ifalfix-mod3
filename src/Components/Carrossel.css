@@ -50,15 +50,34 @@
 }
 
 .carrosel::-webkit-scrollbar {
-  display: none; /* Chrome, Safari e Edge */
+  display: none; /* Chrome, Safari, Edge */
 }
 
-.carrosel:active {
-  cursor: grabbing;
+/* Botões */
+.carrossel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* centralização dos ícones (setas) */
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(255, 255, 255); /* cor da seta do ícone*/ 
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem; /*tamanho da seta do ícone*/ 
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
 }
 
-.titulo-carrossel {
-  font-size: 26px;
-  font-weight: bold;
-  margin: 1.5px;
+.carrossel-button:hover {
+  background-color: rgba(69, 69, 69, 0.027);
+}
+
+.carrossel-button.prev {
+  left: 10px;
+}
+
+.carrossel-button.next {
+  right: 10px;
 }
