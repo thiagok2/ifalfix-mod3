@@ -131,7 +131,40 @@ const FilmesServiceApi = {
     }
   },
 
-  
+  //-----------------------Atualizar filmes/series similares---------------------------------
+  getSimilar: async(id,tipo) =>{
+    try{
+      const generos = await GenreCache.get(tipo);
+      const endpoint = `/${tipo}/${id}/similar`;
+      const data = await fetchTMDb(`/${tipo}/${id}/similar`);
+      return data.results.map((f) => mapData(f, generos, tipo));
+    }catch (error) {
+      console.error('Erro ao buscar similares para (${tipo}) ${id}:', error);
+      return [];
+    }
+  },
+  getRecomedado: async(id,tipo) =>{
+    try{
+      const generos = await GenreCache.get(tipo);
+      const endpoint = `/${tipo}/${id}/recommendations`;
+      const data = await fetchTMDb(`/${tipo}/${id}/recommendations`);
+      return data.results.map((item) => mapData(item, generos, tipo));
+    }catch (error) {
+      console.error('Erro ao buscar recomendação para (${tipo}) ${id}:',error); 
+      return [];
+    }
+  },
+  getComentarios: async(id,tipo) => {
+    try{
+      const endpoint = `/${tipo}/${id}/reviews`;
+      const data = await fetchTMDb(`/${tipo}/${id}/reviews`);
+      return data.results;
+    }catch (error) {
+      console.error('Erro ao buscar comentários para (${tipo}) ${id}:',error); 
+      return [];
+    }
+  },
+
 };
 
 export default FilmesServiceApi;
