@@ -12,7 +12,6 @@ function CardFilme({ filme, expandido = false }) {
       <Link className="card" to={`/filme/${filme.tipo}/${filme.id}`}
         style={{ backgroundImage: `url(${filme.fotoThumbnail})` }}>
         <div className="titulo-card-heard">
-          {filme.titulo}
         </div>
       </Link>
       {expandido && (

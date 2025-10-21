@@ -1,0 +1,75 @@
+.estrutura {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #ffffff;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #000000;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.397);
+}
+
+.secao {
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.514);
+}
+
+.secao:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin: 0 0 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+/* ✅ Parágrafos agora alinhados à esquerda */
+p {
+  margin-bottom: 15px;
+  text-align: left;
+  padding: 2px;
+}
+
+strong {
+  color: #ffffff;
+  font-weight: 700;
+  margin: 2px;
+  margin-left: 20px;
+}
+
+.lista-dados {
+  margin-left: 20px;
+  padding-left: 0;
+}
+
+.lista-dados p {
+  margin-bottom: 10px;
+  padding-left: 10px;
+  position: relative;
+  text-align: left;
+}
+
+.lista-dados p::before {
+  content: "•";
+  color: #ffffffa1;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.rodape {
+  margin-top: 40px;
+  padding: 15px 0;
+  font-size: 0.85rem;
+  color: #ffffff8c;
+  text-align: center;
+}

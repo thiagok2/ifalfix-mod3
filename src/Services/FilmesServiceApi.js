@@ -84,8 +84,12 @@ const mapData = (stream, genres, tipo) => ({
 
 
 const FilmesServiceApi = {
-  // Carregar os generos
-  preloadGenres: async () => GenreCache.preloadBoth(),
+
+  getGeneros: async (type) => {
+    const endpoint = type === 'tv' ? '/genre/tv/list' : '/genre/movie/list';
+    const data = await fetchTMDb(endpoint);
+    return Array.isArray(data?.genres) ? data.genres : [];
+  },
 
   getPopularMovies: async () => {
     try {
@@ -136,7 +140,68 @@ const FilmesServiceApi = {
     }
   },
 
-  
+  //-----------------------Atualizar filmes/series similares---------------------------------
+  getSimilar: async(id,tipo) =>{
+    try{
+      const generos = await GenreCache.get(tipo);
+      const endpoint = `/${tipo}/${id}/similar`;
+      const data = await fetchTMDb(`/${tipo}/${id}/similar`);
+      return data.results.map((f) => mapData(f, generos, tipo));
+    }catch (error) {
+      console.error('Erro ao buscar similares para (${tipo}) ${id}:', error);
+      return [];
+    }
+  },
+  getRecomedado: async(id,tipo) =>{
+    try{
+      const generos = await GenreCache.get(tipo);
+      const endpoint = `/${tipo}/${id}/recommendations`;
+      const data = await fetchTMDb(`/${tipo}/${id}/recommendations`);
+      return data.results.map((item) => mapData(item, generos, tipo));
+    }catch (error) {
+      console.error('Erro ao buscar recomendação para (${tipo}) ${id}:',error); 
+      return [];
+    }
+  },
+  getComentarios: async(id,tipo) => {
+    try{
+      const endpoint = `/${tipo}/${id}/reviews`;
+      const data = await fetchTMDb(`/${tipo}/${id}/reviews`);
+      return data.results;
+    }catch (error) {
+      console.error('Erro ao buscar comentários para (${tipo}) ${id}:',error); 
+      return [];
+    }
+  },
+
+  getByGenero: async (generoIds, tipo = 'movie') => {
+    try {
+      const genres = await GenreCache.get(tipo);
+      const data = await fetchTMDb(`/discover/${tipo}?with_genres=${generoIds}`);
+      return data.results.map((f) => mapData(f, genres, tipo));
+    } catch (error) {
+      console.error('Erro ao buscar recomendação para (${tipo}) ${id}:',error); 
+      return [];
+    }
+  },
+  getComentarios: async(id,tipo) => {
+    try{
+      const data = await fetchTMDb(`/${tipo}/${id}/reviews`);
+      return data
+    } catch (error) {
+      console.error('Erro ao buscar recomendação para (${tipo}) ${id}:',error); 
+      return [];
+    }
+  },
+  getVideoTraile:async(id,tipo) => {
+    try{
+      const data = await fetchTMDb(`/${tipo}/${id}/videos`);
+      return data
+    } catch (error) {
+      console.error('Erro ao buscar recomendação para (${tipo}) ${id}:',error); 
+      return [];
+    }
+  },
 };
 
 export default FilmesServiceApi;
