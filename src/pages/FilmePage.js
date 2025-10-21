@@ -20,9 +20,8 @@ import "./FilmePage.css";
 function FilmePage() {
     const { id, tipo } = useParams();
 
-    // CORRIGIDO: Padronizando os nomes para camelCase (padrão do React)
     const [trailerKey, setTrailerKey] = useState(null); 
-    const [isModeladorOpen, setIsModeladorOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     
     const [filme, setFilme] = useState(null);
     const [carregando, setCarregando] = useState(true);
@@ -41,7 +40,7 @@ function FilmePage() {
             setCarregando(true);
             setComentarios([]);
             setFilme(null);
-            setTrailerKey(null); // Limpa a chave do trailer anterior
+            setTrailerKey(null);
 
             const dadosDoFilme = await FilmesServiceApi.getById(id, tipo);
             setFilme(dadosDoFilme);
@@ -81,19 +80,16 @@ function FilmePage() {
         fetchFilme();
     }, [id, tipo]);
 
-    // Função para ABRIR o modal
-    const headerOpenModelador = () => {
-       // CORRIGIDO: Usando a variável com o nome correto 'trailerKey'
+    const headerOpenModal = () => {
        if (trailerKey) {    
-        setIsModeladorOpen(true);
+        setIsModalOpen(true);
        } else {
         alert('Trailer não encontrado');
        }
     };
 
-    // NOVO: Função para FECHAR o modal que estava faltando
     const handleCloseModal = () => {
-        setIsModeladorOpen(false);
+        setIsModalOpen(false);
     };
 
     if (carregando) {
@@ -114,7 +110,7 @@ function FilmePage() {
                     <Banner filme={filme} />
                 </div>
                 <div className="infos">
-                    <Header filme={filme} onAssistirClicado={headerOpenModelador}/>
+                    <Header filme={filme} onAssistirClicado={headerOpenModal}/>
                 </div>
             </div> 
               <div className="container-comentarios">
@@ -135,7 +131,7 @@ function FilmePage() {
 
            
             <ModeladorTrailer 
-                isOpen={isModeladorOpen} 
+                isOpen={isModalOpen} 
                 onClose={handleCloseModal}  
                 trailerKey={trailerKey} 
             />
