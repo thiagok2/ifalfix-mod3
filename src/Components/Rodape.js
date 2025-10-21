@@ -4,7 +4,7 @@ import '../Components/Rodape.css';
 function Rodape() {
     return (
         <footer className="rodape">
-            <p>&copy; 2025 CineVerse. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Cineclube iflix. Todos os direitos reservados.</p>
             <p>
                 <a href="/sobre">Sobre</a> | <a href="/contato">Contato</a> | <a href="/privacidade">Política de Privacidade</a>
             </p>

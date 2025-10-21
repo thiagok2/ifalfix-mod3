@@ -2,17 +2,18 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import FilmesServiceApi from "../Services/FilmesServiceApi"; // <- Mude para o serviço da API
 
-// Seus componentes de UI
+// 1. SERVIÇO
+import FilmesServiceApi from "../Services/FilmesServiceApi";
+
+// 2. COMPONENTES DE UI - Verifique se todos usam 'export default'
 import Banner from "../Components/FilmeBanner";
 import Header from '../Components/FilmeHeader';
 import ComentariosContainer from '../Components/ComentariosContainer';
 import Carrossel from "../Components/Carrossel";
 import NotFound from "./NotFound";
 import NaveBar from "../Components/NavBar";
-
-// Estilos
+import FilmePageSkeleton from "../Components/FilmePageSkeleton"; 
 import "./FilmePage.css";
 
 function FilmePage() {
@@ -25,36 +26,43 @@ function FilmePage() {
     const [recomendacao, setRecomendacao] = useState([]);
 
     useEffect(() => {
-        // Função para buscar os dados do filme
         const fetchFilme = async () => {
             if (!id) {
                 setCarregando(false);
                 return;
             }
-            
+
             setCarregando(true);
             setFilme(null);
 
             console.log('tipo:'+ tipo)
-            const dadosDoFilme = await FilmesServiceApi.getById(id, tipo);
-            setFilme(dadosDoFilme);
-            setCarregando(false);
+            
+            try {
+                const dadosDoFilme = await FilmesServiceApi.getById(id, tipo);
+                setFilme(dadosDoFilme);
 
-            if(dadosDoFilme){
-                const similares = await FilmesServiceApi.getSimilar(id, tipo);
-                setSimilares(similares);
+                // Se o filme existe, busca os relacionados.
+                if(dadosDoFilme){
+                    const similaresData = await FilmesServiceApi.getSimilar(id, tipo);
+                    setSimilares(similaresData);
 
-                const recomendacao = await FilmesServiceApi.getRecomedado(id, tipo);
-                setRecomendacao(recomendacao);
+                    const recomendacaoData = await FilmesServiceApi.getRecomedado(id, tipo);
+                    setRecomendacao(recomendacaoData);
+                }
+            } catch (error) {
+                console.error("Erro ao buscar dados do filme:", error);
+                setFilme(null); // Garante que se houver erro, exiba o NotFound
             }
+            
             setCarregando(false);
         };
 
         fetchFilme();
-    }, [id,tipo]); // Este efeito roda sempre que o 'id' da URL mudar
+    }, [id, tipo]); 
+
 
     if (carregando) {
-        return <div>Carregando filme...</div>;
+        return <FilmePageSkeleton />;
     }
 
     if (!filme) {
@@ -75,26 +83,23 @@ function FilmePage() {
                 </div>
             </div>
 
+            {similares.length > 0 && (
+                <div className="container-similares">
+                    <Carrossel listadeFilmes={similares} descricao="Filmes Similares" />
+                </div>
+            )}
 
-            <div className="container-similares">
-            <Carrossel listadeFilmes={similares} descricao="Filmes Similares" />
-            </div>
-
-            <div className="container-recomendados">
-                <Carrossel listadeFilmes={recomendacao} descricao="Recomendados" />
-
-            </div>
-
+            {recomendacao.length > 0 && (
+                <div className="container-recomendados">
+                    <Carrossel listadeFilmes={recomendacao} descricao="Recomendados" />
+                </div>
+            )}
 
             <div className="container-comentarios">
                 <ComentariosContainer filme={filme} />
             </div>
             <div>
-     
-
             </div>
-
-
         </div>
     );
 }

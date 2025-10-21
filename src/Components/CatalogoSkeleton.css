@@ -1,0 +1,143 @@
+/*
+ * -----------------------------------------------------
+ * RESET E EFEITO BASE (MANTIDO)
+ * -----------------------------------------------------
+ */
+ .CatalogoSkeleton {
+    /* Simula o 'container' pai */
+    width: 100%;
+    /* Removido o padding para focar nos layouts internos */
+    background-color: #141414; /* Cor de fundo do componente 'containers-catalogo' */
+    min-height: 100vh;
+}
+
+/* Base de todos os elementos skeleton */
+.skeleton-tag, 
+.skeleton-card-extended, 
+.skeleton-poster, 
+.skeleton-text {
+    background-color: #333333; 
+    border-radius: 4px; 
+    position: relative;
+    overflow: hidden; 
+}
+
+/* Efeito de Onda (Mantido) */
+.skeleton-tag::after, 
+.skeleton-poster::after, 
+.skeleton-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%); 
+    background: linear-gradient(
+        90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.05) 20%, 
+        rgba(255, 255, 255, 0.3) 60%, 
+        rgba(255, 255, 255, 0)
+    );
+    animation: loading-wave 1.5s infinite;
+}
+
+@keyframes loading-wave {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+
+/*
+ * -----------------------------------------------------
+ * 1. SKELETON DE GÊNEROS (IMITE CARROSSELGÊNERO)
+ * -----------------------------------------------------
+ */
+.skeleton-generos {
+    /* Imita .container-generos */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Importante para simular o wrap do original */
+    justify-content: center;
+
+    /* Posicionamento exato do .container-generos */
+    width: 74%;
+    margin-top: 100px;
+    margin-left: 13%;
+    margin-bottom: 30px; /* Adicionado um espaçamento para o catálogo */
+}
+
+.skeleton-tag {
+    /* Imita .botao-genero */
+    height: 35px; /* Altura ajustada para ser similar ao padding (10px + 10px + font-size) */
+    min-width: 80px;
+    margin: 5px; /* Imita o margin do botão original */
+    padding: 10px; /* Mantém o padding para o efeito visual, mesmo que a altura já esteja definida */
+    border-radius: 15px; /* Imita o border-radius do botão original */
+
+    /* Variando as larguras para um visual mais realista */
+    /* Você pode adicionar estas classes no seu componente React */
+}
+.skeleton-tag.w-sm { min-width: 60px; }
+.skeleton-tag.w-md { min-width: 100px; }
+.skeleton-tag.w-lg { min-width: 140px; }
+
+
+/*
+ * -----------------------------------------------------
+ * 2. SKELETON DE CARDS DO CATÁLOGO (IMITE CONTAINERS-CATALOGO)
+ * -----------------------------------------------------
+ */
+.containers-skeleton-catalogo {
+    /* Imita .containers-catalogo (sem os botões de navegação) */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Simula o justify-content: center do original */
+    gap: 30px; /* Imita o gap do original */
+    margin-top: 30px; /* Imita o margin-top do original */
+    
+    /* Nota: Se você tem botões de navegação no componente original,
+       o layout pode precisar ser aninhado em um div que simule o 'containers-catalogo2'
+       para replicar a exata posição. Vou assumir que centralizar com gap 30px já é suficiente. */
+}
+
+.skeleton-card-extended {
+    /* Imita .container-filme */
+    width: 490px; /* Largura exata do .container-filme */
+    height: 600px; /* Altura aproximada do CardFilmeExtendido completo */
+    border-radius: 10px; /* Imita o border-radius */
+    margin: 20px; /* Imita o margin do original */
+    padding: 20px; /* Adicionado padding para afastar o conteúdo interno */
+    gap: 15px; /* Espaçamento interno entre os blocos */
+    background-color: rgb(24, 23, 23); /* Cor de fundo exata do container-filme */
+}
+
+.skeleton-poster {
+    /* Simula a área da imagem */
+    width: 90%; /* Similar ao img-container */
+    max-width: 360px; /* Similar ao img-container */
+    height: 480px; /* Altura ajustada para a thumbnail (em torno de 2:3) */
+    margin: 0 auto; /* Centraliza a "imagem" */
+    border-radius: 5px; 
+}
+
+.skeleton-text {
+    height: 18px;
+    margin: 5px 0;
+}
+
+.skeleton-text.line-1 {
+    width: 85%; 
+}
+
+.skeleton-text.line-2 {
+    width: 50%;
+}
+
+.skeleton-text.line-3 {
+    width: 95%; /* Linha para simular sinopse/detalhes longos */
+}
+.skeleton-text.line-4 {
+    width: 70%;
+}

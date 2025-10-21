@@ -1,0 +1,126 @@
+/*
+ * -----------------------------------------------------
+ * ESTILOS GLOBAIS DO SKELETON
+ * -----------------------------------------------------
+ */
+
+ .CatalogoSkeleton {
+    /* Garante que o container ocupe a largura total */
+    width: 100%;
+    padding: 20px 5%; /* Espaçamento interno similar ao conteúdo real */
+    background-color: #1a1a1a; /* Cor de fundo escura, padrão para apps de mídia */
+    min-height: 100vh; /* Garante que preencha a tela verticalmente */
+}
+
+/* Base de todos os elementos skeleton */
+.skeleton-tag, 
+.skeleton-card-extended, 
+.skeleton-poster, 
+.skeleton-text {
+    /* Cor base do "fundo" do esqueleto */
+    background-color: #333333; 
+    border-radius: 4px; /* Bordas arredondadas para parecer com blocos de conteúdo */
+    position: relative;
+    overflow: hidden; /* Importante para o efeito de onda */
+}
+
+/*
+ * EFEITO DE ONDA DE CARREGAMENTO (A TRANSIÇÃO)
+ */
+.skeleton-tag::after, 
+.skeleton-poster::after, 
+.skeleton-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* Inicia a onda fora da esquerda */
+    transform: translateX(-100%); 
+    /* O gradiente é a "onda de luz" */
+    background: linear-gradient(
+        90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.05) 20%, 
+        rgba(255, 255, 255, 0.3) 60%, 
+        rgba(255, 255, 255, 0)
+    );
+    /* Aplica a animação */
+    animation: loading-wave 1.5s infinite;
+}
+
+@keyframes loading-wave {
+    /* Desloca a onda da esquerda para a direita */
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+
+/*
+ * -----------------------------------------------------
+ * ESTILOS DE LAYOUT ESPECÍFICOS
+ * -----------------------------------------------------
+ */
+
+/* 1. SKELETON DE GÊNEROS */
+.skeleton-generos {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+    /* Simula o CarrosselGenero */
+    overflow-x: hidden; 
+    white-space: nowrap;
+}
+
+.skeleton-tag {
+    /* Simula um botão/tag de gênero */
+    height: 30px;
+    min-width: 80px;
+}
+
+.skeleton-tag.medium {
+    min-width: 120px;
+}
+
+.skeleton-tag.large {
+    min-width: 150px;
+}
+
+
+/* 2. SKELETON DE CARDS DO CATÁLOGO */
+.containers-catalogo {
+    /* Simula o layout flexível do seu catálogo de filmes */
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.skeleton-card-extended {
+    /* Define o tamanho de cada "card de filme" */
+    width: 220px; /* Largura similar ao CardFilmeExtendido */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skeleton-poster {
+    /* Simula a imagem do filme */
+    width: 100%;
+    height: 330px; /* Proporção de um pôster de filme */
+}
+
+.skeleton-text {
+    /* Simula as linhas de texto (título, detalhes) */
+    height: 18px;
+    margin-bottom: 5px;
+}
+
+.skeleton-text.line-1 {
+    width: 100%; /* Linha cheia (título principal) */
+}
+
+.skeleton-text.line-2 {
+    width: 60%; /* Linha menor (detalhes ou nota) */
+}
