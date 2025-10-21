@@ -74,8 +74,13 @@ const mapData = (stream, genres, tipo) => ({
   genero: getGenreNamesByIds(stream.genre_ids, genres),
   elenco: '',
   curtidas: stream.vote_count,
-  nota_avaliacao: stream.vote_average,
+  nota_avaliacao: (() => {
+    const inteiro = Math.floor(stream.vote_average);
+    const decimal = stream.vote_average - inteiro;
+    return decimal >= 0.6 ? inteiro + 1 : inteiro;
+  })(),
 });
+
 
 
 const FilmesServiceApi = {

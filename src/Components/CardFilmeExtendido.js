@@ -14,6 +14,8 @@ function CardFilmeExtendido({ filme }) { // A prop 'key' é usada pelo React e n
         filmesService.addFilmeClicado(filme);
     }
 
+    const notaAvaliacao = Math.round(filme.nota_avaliacao);
+
     return (
         <Link 
             to={`/filme/${filme.tipo}/${filme.id}`} 
@@ -28,7 +30,7 @@ function CardFilmeExtendido({ filme }) { // A prop 'key' é usada pelo React e n
             </div>
 
             <div className='filme-subtitulo'>
-                <div className='subitem-header'>{filme.nota_avaliacao} <FaStar className='star'/></div>
+                <div className='subitem-header'><FaStar className='star' /> {filme.nota_avaliacao}</div>
                 <div className='subitem-header faixa'>{filme.faixa_etaria}</div>
             </div>
 
