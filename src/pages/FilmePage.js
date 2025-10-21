@@ -1,21 +1,17 @@
-// Arquivo: FilmePage.js
-
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-// 1. SERVIÇO
 import FilmesServiceApi from "../Services/FilmesServiceApi";
 
-// 2. COMPONENTES DE UI - Verifique se todos usam 'export default'
 import Banner from "../Components/FilmeBanner";
 import Header from '../Components/FilmeHeader';
-import ModeladorTrailer from '../Components/ModeladorTrailer'; // <- O nome do componente do Modal
+import ModeladorTrailer from '../Components/ModeladorTrailer';
 import ComentariosContainer from '../Components/ComentariosContainer';
 import Carrossel from "../Components/Carrossel";
 import NotFound from "./NotFound";
 import NaveBar from "../Components/NavBar";
-import FilmePageSkeleton from "../Components/FilmePageSkeleton"; 
 import "./FilmePage.css";
+import NavBar from "../Components/NavBar";
 
 function FilmePage() {
     const { id, tipo } = useParams();
@@ -93,7 +89,12 @@ function FilmePage() {
     };
 
     if (carregando) {
-        return <FilmePageSkeleton />;
+        return (
+            <>
+                <NavBar />
+                
+            </>
+        );
     }
 
     if (!filme) {
