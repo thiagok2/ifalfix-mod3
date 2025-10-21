@@ -187,7 +187,16 @@ const FilmesServiceApi = {
       console.error('Erro ao buscar recomendação para (${tipo}) ${id}:',error); 
       return [];
     }
-  }
+  },
+  getVideoTraile:async(id,tipo) => {
+    try{
+      const data = await fetchTMDb(`/${tipo}/${id}/videos`);
+      return data
+    } catch (error) {
+      console.error('Erro ao buscar recomendação para (${tipo}) ${id}:',error); 
+      return [];
+    }
+  },
 };
 
 export default FilmesServiceApi;
