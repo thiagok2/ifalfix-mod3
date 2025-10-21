@@ -27,9 +27,7 @@ function MainRoutes() {
             <Route path="/catalogo" element={<CatalogoPage />} />
             <Route path="/catalogo/:tipo" element={<CatalogoPage />} />
             
-      
-
-
+            
         </Routes>
     );
 }
